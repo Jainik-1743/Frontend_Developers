@@ -1,5 +1,5 @@
 {
-  "name": "Frontend_Developers",
+  "name": "frontend-developers",
   "private": true,
   "scripts": {
     "build": "turbo build",
