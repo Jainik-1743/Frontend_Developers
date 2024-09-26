@@ -10,7 +10,7 @@ To install the necessary testing packages, run one of the following commands:
 <summary>npm</summary>
 
 ```sh
-npm install @testing-library/react @testing-library/jest-dom @types/jest jest jest-environment-jsdom
+npm install --save-dev @testing-library/react @testing-library/jest-dom @types/jest jest jest-environment-jsdom
 ```
 
 </details> <details> <summary>pnpm</summary>
