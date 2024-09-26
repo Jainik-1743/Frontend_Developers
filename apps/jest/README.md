@@ -10,19 +10,19 @@ To install the necessary testing packages, run one of the following commands:
 <summary>npm</summary>
 
 ```sh
-npm install --save-dev @testing-library/react @testing-library/jest-dom @types/jest jest jest-environment-jsdom
+npm install --save-dev @testing-library/react @testing-library/jest-dom @types/jest jest jest-environment-jsdom @testing-library/user-event
 ```
 
 </details> <details> <summary>pnpm</summary>
 
 ```sh
-pnpm add -D @testing-library/react @testing-library/jest-dom @types/jest jest jest-environment-jsdom
+pnpm add -D @testing-library/react @testing-library/jest-dom @types/jest jest jest-environment-jsdom @testing-library/user-event
 ```
 
 </details> <details> <summary>yarn</summary>
 
 ```sh
-yarn add -D @testing-library/react @testing-library/jest-dom @types/jest jest jest-environment-jsdom
+yarn add -D @testing-library/react @testing-library/jest-dom @types/jest jest jest-environment-jsdom @testing-library/user-event
 ```
 
 </details>
