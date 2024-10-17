@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
       name: "Alice Johnson",
       age: 35,
     },
+    {
+      name: "Tom Wilson",
+      age: 28,
+    },
   ]);
 });
 
