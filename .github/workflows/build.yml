@@ -29,3 +29,6 @@ jobs:
 
       - name: Build with Turbo
         run: pnpm turbo run build
+
+    #   - name: Simulate failed test
+    #     run: exit 1
