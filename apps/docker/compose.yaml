@@ -1,0 +1,6 @@
+services:
+  image:
+    build: .
+    container_name: peru-jainik
+    ports:
+      - "5500:5500"
