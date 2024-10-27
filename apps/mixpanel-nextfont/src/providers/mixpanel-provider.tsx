@@ -3,11 +3,11 @@
 import { ReactNode, useEffect } from "react";
 import { initializeMixpanel } from "../services/mixpanel";
 
-interface Props {
+interface MixPanelProviderProps {
   children: ReactNode;
 }
 
-const MixPanelProvider = ({ children }: Props) => {
+const MixPanelProvider = ({ children }: MixPanelProviderProps) => {
   useEffect(() => {
     initializeMixpanel();
   }, []);
