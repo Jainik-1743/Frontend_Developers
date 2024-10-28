@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "check:lint": "next check:lint",
+    "check:format": "next check:format",
+    "format": "next format",
     "clean": "rm -rf .next && rm -rf node_modules && rm -rf .turbo"
   },
   "dependencies": {

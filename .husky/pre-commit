@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo '🐶🐶 🏗️👷👷 formating, linting and building your project before committing'
+
+# Define variables
+PASS=0
+FAIL=1
+
+# Formatting code
+pnpm check-format || { echo "❌❌❌ Code formatting failed 🥶🥶🥶"; exit $FAIL; }
+echo "✅✅✅ Code formatting passed"
+
+# Linting code
+pnpm check-lint || { echo "❌❌❌ Code linting failed 🥶🥶🥶"; exit $FAIL; }
+echo "✅✅✅ Code linting passed"
+
+# Building code
+pnpm build || { echo "❌❌❌ Code building failed 🥶🥶🥶"; exit $FAIL; }
+echo "✅✅✅ Code building passed"
+
+
+echo "✅💯 All checks are passed"
+echo "🎉🎉 Committing code now.... ✔️✔️✔️"
+exit $PASS

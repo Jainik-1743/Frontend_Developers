@@ -5,9 +5,12 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "check:lint": "turbo check:lint",
     "root:clean": "rm -rf .turbo && rm -rf node_modules && rm -rf pnpm-lock.yaml",
     "clean": "turbo clean && pnpm root:clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "check:format": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky"
   },
   "devDependencies": {
     "husky": "^9.1.6",

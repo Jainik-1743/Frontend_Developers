@@ -14,6 +14,15 @@
       "dependsOn": ["^clean"],
       "inputs": [".next/**", "!.next/cache/**"]
     },
+    "check:lint": {
+      "dependsOn": ["^check:lint"]
+    },
+    "check:format": {
+      "dependsOn": ["^check:format"]
+    },
+    "root:clean": {
+      "dependsOn": ["^root:clean"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
