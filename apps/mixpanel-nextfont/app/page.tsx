@@ -5,13 +5,13 @@ import { cn } from "@repo/ui/lib/utils";
 import mixpanel from "mixpanel-browser";
 import { Ruda, Astloch } from "next/font/google";
 
-export const ruda = Ruda({
+const ruda = Ruda({
   subsets: ["latin"],
   weight: ["400", "700"],
   display: "swap",
 });
 
-export const astloch = Astloch({
+const astloch = Astloch({
   subsets: ["latin"],
   weight: ["400", "700"],
   display: "swap",

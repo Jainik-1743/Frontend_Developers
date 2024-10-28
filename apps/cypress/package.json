@@ -9,7 +9,8 @@
     "lint": "next lint",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:run:headless": "cypress run --headless"
+    "cypress:run:headless": "cypress run --headless",
+    "clean": "rm -rf .next && rm -rf node_modules && rm -rf .turbo"
   },
   "dependencies": {
     "next": "14.2.13",
