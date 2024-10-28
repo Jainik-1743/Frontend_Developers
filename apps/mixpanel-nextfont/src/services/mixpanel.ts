@@ -30,7 +30,7 @@ export const createAlias = (aliasId: string) => {
 
 export const trackEvent = (
   eventName: MixpanelEventName,
-  properties?: EventProperties
+  properties?: EventProperties,
 ) => {
   mixpanel?.track(eventName, properties);
 };

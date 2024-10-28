@@ -33,7 +33,7 @@ export default function Home() {
       <h1
         className={cn(
           ruda.className,
-          "text-3xl font-bold underline text-red-500"
+          "text-3xl font-bold underline text-red-500",
         )}
       >
         Peru Jainik Patel

@@ -1,25 +1,44 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '🐶🐶 🏗️👷👷 formating, linting and building your project before committing'
+# Define colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+echo '🐶🐶 🏗️👷👷 Formatting, linting, and building your project before committing...'
 
 # Define variables
 PASS=0
 FAIL=1
 
-# Formatting code
-pnpm check-format || { echo "❌❌❌ Code formatting failed 🥶🥶🥶"; exit $FAIL; }
-echo "✅✅✅ Code formatting passed"
+# Function to print a separator
+print_separator() {
+  echo "--------------------------------------------------"
+}
 
-# Linting code
-pnpm check-lint || { echo "❌❌❌ Code linting failed 🥶🥶🥶"; exit $FAIL; }
-echo "✅✅✅ Code linting passed"
+# Formatting code
+print_separator
+echo "🔍🔍 Checking code formatting..."
+if pnpm check:format; then
+  echo -e "${GREEN}✅✅✅ Code formatting passed${NC}"
+else
+  echo -e "${RED}❌❌❌ Code formatting failed 🥶🥶🥶${NC}"
+  exit $FAIL
+fi
 
 # Building code
-pnpm build || { echo "❌❌❌ Code building failed 🥶🥶🥶"; exit $FAIL; }
-echo "✅✅✅ Code building passed"
+print_separator
+echo "🏗️🏗️ Building the project..."
+if pnpm build; then
+  echo -e "${GREEN}✅✅✅ Code building passed${NC}"
+else
+  echo -e "${RED}❌❌❌ Code building failed 🥶🥶🥶${NC}"
+  exit $FAIL
+fi
 
-
-echo "✅💯 All checks are passed"
-echo "🎉🎉 Committing code now.... ✔️✔️✔️"
+# All checks passed
+print_separator
+echo -e "${GREEN}✅💯 All checks passed${NC}"
+echo -e "${GREEN}🎉🎉 Committing code now... ✔️✔️✔️${NC}"
 exit $PASS
