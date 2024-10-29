@@ -4,9 +4,10 @@ import {
   collection,
   getDocs,
   doc,
-  getDoc,
   addDoc,
   deleteDoc,
+  query,
+  where,
 } from "firebase/firestore";
 import cors from "cors";
 import { Book } from "./types";
@@ -35,6 +36,24 @@ app.get("/books", async (req: Request, res: Response) => {
     res.json(paginatedBooks);
   } catch (error) {
     res.status(500).send("Error fetching books");
+  }
+});
+
+app.get("/books/:id", async (req: Request, res: Response) => {
+  try {
+    const booksQuery = query(
+      booksCollection,
+      where("id", "==", parseInt(req.params.id)),
+    );
+    const querySnapshot = await getDocs(booksQuery);
+
+    if (querySnapshot.empty) {
+      res.status(404).send("Book not found");
+    } else {
+      res.json(querySnapshot.docs[0].data());
+    }
+  } catch (error) {
+    res.status(500).send("Error fetching book");
   }
 });
 
