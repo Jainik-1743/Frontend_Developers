@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@repo/ui/components/ui/card";
 import { Button } from "@repo/ui/components/ui/button";
-import { Book } from "@/app/page";
+import { Book } from "@repo/types/book";
 
 interface BookCardProps {
   book: Book;

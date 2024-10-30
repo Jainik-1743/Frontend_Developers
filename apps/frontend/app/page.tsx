@@ -3,21 +3,7 @@
 import BookCard from "@/src/components/book-card";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
-export interface Book {
-  ISBN: string;
-  author: string;
-  coverImage: string;
-  description: string;
-  genre: string;
-  id: number;
-  language: string;
-  pages: number;
-  price: number;
-  publicationDate: string;
-  publisher: string;
-  title: string;
-}
+import { Book } from "@repo/types/book";
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);

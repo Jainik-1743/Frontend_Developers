@@ -10,7 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 import cors from "cors";
-import { Book } from "./types";
+import { Book } from "@repo/types/book";
 
 const app = express();
 const PORT = 45454;

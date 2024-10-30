@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@repo/types": "workspace:*",
     "@types/express": "^5.0.0",
     "@types/node": "^22.8.2",
     "cors": "^2.8.5",
