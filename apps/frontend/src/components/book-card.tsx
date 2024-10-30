@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Card,
   CardContent,
@@ -9,33 +8,35 @@ import {
 } from "@repo/ui/components/ui/card";
 import { Button } from "@repo/ui/components/ui/button";
 import { Book } from "@repo/types/book";
+import Image from "next/image";
 
 interface BookCardProps {
   book: Book;
 }
 
-const BookCard: React.FC<BookCardProps> = ({ book }) => {
-  return (
-    <Card className="w-full max-w-sm mx-auto">
-      <CardHeader>
-        <CardTitle>{book.title}</CardTitle>
-        <CardDescription>{book.author}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <img
-          src={book.coverImage}
-          alt={book.title}
-          className="w-full h-48 object-cover mb-4"
-        />
-        <p>{book.description}</p>
-        <p className="mt-2 font-bold">Price: ${book.price}</p>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="outline">Details</Button>
-        <Button>Add to Cart</Button>
-      </CardFooter>
-    </Card>
-  );
-};
+const BookCard = ({ book }: BookCardProps) => (
+  <Card className="w-full max-w-sm mx-auto">
+    <CardHeader>
+      <CardTitle>{book.title}</CardTitle>
+      <CardDescription>{book.author}</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <Image
+        src={book.coverImage}
+        alt={book.title}
+        width={300}
+        height={200}
+        priority
+        className="object-cover"
+      />
+      <p className="mt-2">{book.description}</p>
+      <p className="mt-2 font-bold">Price: ${book.price}</p>
+    </CardContent>
+    <CardFooter className="flex justify-between">
+      <Button variant="outline">Details</Button>
+      <Button>Add to Cart</Button>
+    </CardFooter>
+  </Card>
+);
 
 export default BookCard;

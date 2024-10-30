@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express, { Request, Response } from "express";
 import { db } from "./firebase";
 import {
@@ -28,7 +29,7 @@ app.get("/books", async (req: Request, res: Response) => {
     })) as Book[];
 
     const page = parseInt(req.query.page as string) || 1;
-    const limit = parseInt(req.query.limit as string) || 100;
+    const limit = parseInt(req.query.limit as string) || 10;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
     const paginatedBooks = books.slice(startIndex, endIndex);
