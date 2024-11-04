@@ -1,5 +1,5 @@
-import { FirebaseOptions, initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp, FirebaseOptions } from "firebase/app";
+import { browserLocalPersistence, initializeAuth } from "firebase/auth";
 
 const firebaseConfig: FirebaseOptions = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -12,6 +12,7 @@ const firebaseConfig: FirebaseOptions = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
-export { db };
+export const auth = initializeAuth(app, {
+  persistence: browserLocalPersistence,
+});
