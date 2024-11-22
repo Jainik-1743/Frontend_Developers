@@ -30,25 +30,15 @@ jobs:
       - name: Print environment variables
         run: printenv
 
-      - name: Print Firebase environment variables
-        run: |
-          echo "NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }}"
-          echo "NEXT_PUBLIC_AUTH_DOMAIN=${{ secrets.NEXT_PUBLIC_AUTH_DOMAIN }}"
-          echo "NEXT_PUBLIC_PROJECT_ID=${{ secrets.NEXT_PUBLIC_PROJECT_ID }}"
-          echo "NEXT_PUBLIC_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_STORAGE_BUCKET }}"
-          echo "NEXT_PUBLIC_MESSAGING_SENDER_ID=${{ secrets.NEXT_PUBLIC_MESSAGING_SENDER_ID }}"
-          echo "NEXT_PUBLIC_APP_ID=${{ secrets.NEXT_PUBLIC_APP_ID }}"
-          echo "NEXT_PUBLIC_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_MEASUREMENT_ID }}"
-
       - name: Build with Turbo
         env:
-          NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
-          NEXT_PUBLIC_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_AUTH_DOMAIN }}
-          NEXT_PUBLIC_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_PROJECT_ID }}
-          NEXT_PUBLIC_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_STORAGE_BUCKET }}
-          NEXT_PUBLIC_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_MESSAGING_SENDER_ID }}
-          NEXT_PUBLIC_APP_ID: ${{ secrets.NEXT_PUBLIC_APP_ID }}
-          NEXT_PUBLIC_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_MEASUREMENT_ID }}
+          NEXT_PUBLIC_API_KEY: "AIzaSyAroDfMNpbhSxFvhfoGM9UTW4L_mVz5s_E"
+          NEXT_PUBLIC_AUTH_DOMAIN: "jainik-64d5f.firebaseapp.com"
+          NEXT_PUBLIC_PROJECT_ID: "jainik-64d5f"
+          NEXT_PUBLIC_STORAGE_BUCKET: "jainik-64d5f.appspot.com"
+          NEXT_PUBLIC_MESSAGING_SENDER_ID: "79924288834"
+          NEXT_PUBLIC_APP_ID: "1:79924288834:web:25018b9818a02ce561bcdb"
+          NEXT_PUBLIC_MEASUREMENT_ID: "G-5N11E8SP1E"
         run: pnpm turbo run build
 
       - name: Run ESLint
