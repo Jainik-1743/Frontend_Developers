@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Debug environment variables
+        run: printenv | grep NEXT_PUBLIC
+
       # - name: Build with Turbo
       #   run: pnpm turbo run build
 
