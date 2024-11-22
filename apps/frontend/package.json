@@ -13,15 +13,19 @@
     "@repo/types": "workspace:*",
     "@repo/ui": "workspace:*",
     "axios": "^1.7.7",
+    "debounce": "^2.2.0",
     "firebase": "^11.0.1",
+    "from": "^0.1.7",
+    "import": "^0.0.6",
+    "lodash.debounce": "^4.0.8",
     "next": "15.0.2",
     "nookies": "^2.5.2",
     "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028",
-    "react-intersection-observer": "^9.13.1"
+    "react-dom": "19.0.0-rc-02c0e824-20241028"
   },
   "devDependencies": {
     "@types/axios": "^0.14.4",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/nookies": "^2.0.3",
     "@types/react": "^18",
