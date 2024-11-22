@@ -30,7 +30,7 @@ jobs:
       # - name: Build with Turbo
       #   run: pnpm turbo run build
 
-      - name: Build all packages with Turbo
+      - name: Build with Turbo
         env:
           NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
           NEXT_PUBLIC_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_AUTH_DOMAIN }}
