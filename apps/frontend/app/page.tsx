@@ -1,10 +1,12 @@
 "use client";
 
-import BookCard from "@/src/components/book-card";
-import axios from "axios";
 import { useEffect, useState } from "react";
+
 import { Book } from "@repo/types/book";
+import axios from "axios";
 import debounce from "lodash.debounce";
+
+import BookCard from "@/src/components/book-card";
 import Loader from "@/src/components/loader";
 
 export default function Home() {
@@ -29,6 +31,7 @@ export default function Home() {
         setFetchMore(false);
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`Error fetching books for page ${currentPage}:`, error);
     } finally {
       setLoading(false);
@@ -67,11 +70,11 @@ export default function Home() {
   }, [page]);
 
   return (
-    <div className="container mx-auto p-4 mb-16 min-h-screen">
-      <h1 className="text-4xl font-bold text-center mb-8">Books</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="container mx-auto mb-16 min-h-screen p-4">
+      <h1 className="mb-8 text-center text-4xl font-bold">Books</h1>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {books.map((book) => (
-          <BookCard key={book.id} book={book} />
+          <BookCard book={book} key={book.id} />
         ))}
       </div>
 

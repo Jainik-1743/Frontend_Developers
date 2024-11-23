@@ -6,12 +6,13 @@
     "dev": "next dev --turbopack -p 3005",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "clean": "rm -rf .next && rm -rf node_modules && rm -rf .turbo"
   },
   "dependencies": {
     "@repo/types": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@types/eslint-plugin-tailwindcss": "^3.17.0",
     "axios": "^1.7.7",
     "debounce": "^2.2.0",
     "firebase": "^11.0.1",
@@ -24,16 +25,26 @@
     "react-dom": "19.0.0-rc-02c0e824-20241028"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@eslint/js": "^9.15.0",
     "@types/axios": "^0.14.4",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/nookies": "^2.0.3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^9.15.0",
     "eslint-config-next": "15.0.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-promise": "^7.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "globals": "^15.12.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.15.0"
   }
 }

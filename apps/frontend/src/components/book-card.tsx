@@ -1,3 +1,7 @@
+import Image from "next/image";
+
+import { Book } from "@repo/types/book";
+import { Button } from "@repo/ui/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,28 +10,25 @@ import {
   CardHeader,
   CardTitle,
 } from "@repo/ui/components/ui/card";
-import { Button } from "@repo/ui/components/ui/button";
-import { Book } from "@repo/types/book";
-import Image from "next/image";
 
 interface BookCardProps {
   book: Book;
 }
 
 const BookCard = ({ book }: BookCardProps) => (
-  <Card className="w-full max-w-sm mx-auto">
+  <Card className="mx-auto w-full max-w-sm">
     <CardHeader>
       <CardTitle className="truncate">{book.title}</CardTitle>
       <CardDescription>{book.author}</CardDescription>
     </CardHeader>
     <CardContent>
       <Image
-        src={book.coverImage}
         alt={book.title}
-        width={300}
+        className="h-[200px] object-cover"
         height={200}
         priority
-        className="object-cover h-[200px]"
+        src={book.coverImage}
+        width={300}
       />
       <p className="mt-2">{book.description}</p>
       <p className="mt-2 font-bold">Price: ${book.price}</p>

@@ -1,6 +1,7 @@
 "use client";
 
-import useFirebaseAuth from "@/src/hooks/firebase-auth";
+import { useEffect, useState } from "react";
+
 import {
   Avatar,
   AvatarFallback,
@@ -9,7 +10,8 @@ import {
 import { Button } from "@repo/ui/components/ui/button";
 import axios from "axios";
 import { User } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+
+import useFirebaseAuth from "@/src/hooks/firebase-auth";
 
 const Header = () => {
   const [firebaseUser, setFirebaseUser] = useState<User | null>(null);
@@ -28,6 +30,7 @@ const Header = () => {
   const handleSignInWithGoogle = async () => {
     const [userCredential, error] = await signInWithGoogleProvider();
     if (error) {
+      // eslint-disable-next-line no-console
       console.error("Error signing in with Google", error);
     } else {
       const user = userCredential?.user;
@@ -52,6 +55,7 @@ const Header = () => {
   const handleLogout = async () => {
     const [, error] = await logOut();
     if (error) {
+      // eslint-disable-next-line no-console
       console.error("Error logging out", error);
     } else {
       setFirebaseUser(null);
@@ -60,7 +64,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
+    <header className="flex items-center justify-between bg-gray-800 p-4 text-white">
       <div className="flex items-center">
         <span className="text-xl font-bold">Jainik</span>
       </div>
@@ -72,16 +76,16 @@ const Header = () => {
           </Avatar>
 
           <Button
+            className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700"
             onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           >
             Logout
           </Button>
         </div>
       ) : (
         <Button
+          className="mr-2 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
           onClick={handleSignInWithGoogle}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
         >
           Login
         </Button>

@@ -1,5 +1,3 @@
-import { auth } from "../firebase/client";
-
 import {
   signInWithPopup,
   GoogleAuthProvider,
@@ -8,6 +6,8 @@ import {
   browserPopupRedirectResolver,
   signOut,
 } from "firebase/auth";
+
+import { auth } from "../firebase/client";
 
 export default function useFirebaseAuth() {
   const signInWithGoogleProvider = async (): Promise<
