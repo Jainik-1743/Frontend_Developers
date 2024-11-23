@@ -17,7 +17,7 @@ interface BookCardProps {
 const BookCard = ({ book }: BookCardProps) => (
   <Card className="w-full max-w-sm mx-auto">
     <CardHeader>
-      <CardTitle>{book.title}</CardTitle>
+      <CardTitle className="truncate">{book.title}</CardTitle>
       <CardDescription>{book.author}</CardDescription>
     </CardHeader>
     <CardContent>
@@ -27,7 +27,7 @@ const BookCard = ({ book }: BookCardProps) => (
         width={300}
         height={200}
         priority
-        className="object-cover"
+        className="object-cover h-[200px]"
       />
       <p className="mt-2">{book.description}</p>
       <p className="mt-2 font-bold">Price: ${book.price}</p>

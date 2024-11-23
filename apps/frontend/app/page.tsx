@@ -4,20 +4,14 @@ import BookCard from "@/src/components/book-card";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Book } from "@repo/types/book";
-import { Button } from "@repo/ui/components/ui/button";
-import useFirebaseAuth from "@/src/hooks/firebase-auth";
-import { User } from "firebase/auth";
 import debounce from "lodash.debounce";
+import Loader from "@/src/components/loader";
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
   const [fetchMore, setFetchMore] = useState(true);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-
-  const [firebaseUser, setFirebaseUser] = useState<User | undefined>(undefined);
-
-  const { signInWithGoogleProvider, logOut } = useFirebaseAuth();
 
   // Fetch books function
   const fetchBooks = async (currentPage: number) => {
@@ -72,41 +66,8 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
-  // Google Sign-In
-  const handleSignInWithGoogle = async () => {
-    const [userCredential, error] = await signInWithGoogleProvider();
-    if (error) {
-      console.error("Error signing in with Google", error);
-    } else {
-      const user = userCredential?.user;
-
-      if (user) {
-        setFirebaseUser(user);
-
-        axios.post("http://localhost:45454/auth/google", {
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          photoURL: user.photoURL,
-          isAnonymous: user.isAnonymous,
-          isVerified: user.emailVerified,
-        });
-      }
-    }
-  };
-
-  // Logout
-  const handleLogout = async () => {
-    const [, error] = await logOut();
-    if (error) {
-      console.error("Error logging out", error);
-    } else {
-      setFirebaseUser(undefined);
-    }
-  };
-
   return (
-    <div className="container mx-auto p-4 min-h-screen">
+    <div className="container mx-auto p-4 mb-16 min-h-screen">
       <h1 className="text-4xl font-bold text-center mb-8">Books</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {books.map((book) => (
@@ -114,21 +75,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="mt-8 text-center">
-        {loading ? (
-          <p>Loading more books...</p>
-        ) : fetchMore ? (
-          <p>Scroll down to load more books...</p>
-        ) : (
-          <p>No more books available.</p>
-        )}
-      </div>
-
-      <p>{firebaseUser?.displayName}</p>
-
-      <Button onClick={handleSignInWithGoogle}>Google Sign In</Button>
-
-      <Button onClick={handleLogout}>Logout</Button>
+      <div className="mt-8 text-center">{loading && <Loader />}</div>
     </div>
   );
 }
