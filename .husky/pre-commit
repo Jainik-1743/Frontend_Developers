@@ -27,6 +27,16 @@ else
   exit $FAIL
 fi
 
+# Linting code
+print_separator
+echo "🔍🔍 Checking code linting..."
+if pnpm lint; then
+  echo -e "${GREEN}✅✅✅ Code linting passed${NC}"
+else
+  echo -e "${RED}❌❌❌ Code linting failed 🥶🥶🥶${NC}"
+  exit $FAIL
+fi
+
 # Building code
 print_separator
 echo "🏗️🏗️ Building the project..."
