@@ -36,6 +36,7 @@ export default [
       "no-use-before-define": "error",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
+      eqeqeq: ["error", "always"],
       "import/order": [
         "error",
         {
