@@ -21,9 +21,12 @@ export default function Home() {
     setLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:45454/books", {
-        params: { page: currentPage, limit: 10 },
-      });
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/books`,
+        {
+          params: { page: currentPage, limit: 10 },
+        },
+      );
 
       setBooks((prevBooks) => [...prevBooks, ...response.data]);
 
