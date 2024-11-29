@@ -25,6 +25,13 @@ export default [
     },
   },
   {
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+  },
+  {
     rules: {
       "no-console": "warn",
       "react/react-in-jsx-scope": "off",
