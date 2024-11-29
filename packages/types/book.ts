@@ -12,3 +12,14 @@ export interface Book {
   publisher: string;
   title: string;
 }
+
+export interface User {
+  id?: string;
+  uid: string;
+  displayName: string;
+  isAnonymous: boolean;
+  isVerified: boolean;
+  email: string;
+  photoURL?: string; // Optional field
+  [key: string]: any; // Additional optional fields
+}

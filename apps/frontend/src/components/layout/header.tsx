@@ -39,7 +39,7 @@ const Header = () => {
         setFirebaseUser(user);
         localStorage.setItem("firebaseUser", JSON.stringify(user));
 
-        axios.post("http://localhost:45454/auth/google", {
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/google`, {
           uid: user.uid,
           email: user.email,
           displayName: user.displayName,
