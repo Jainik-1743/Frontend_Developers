@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <Button variant="link" onClick={handleClick}>
+      <Button onClick={handleClick} variant="link">
         Click Me
       </Button>
 

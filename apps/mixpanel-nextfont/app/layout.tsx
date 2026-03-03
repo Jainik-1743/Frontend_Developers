@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+
 import MixPanelProvider from "@/src/providers/mixpanel-provider";
 
 import "@repo/ui/globals.css";

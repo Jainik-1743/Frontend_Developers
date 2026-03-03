@@ -23,18 +23,18 @@ const Home = () => {
             <label htmlFor="email">Email:</label>
             <input
               id="email"
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
             <label htmlFor="password">Password:</label>
             <input
               id="password"
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button type="submit">Login</button>

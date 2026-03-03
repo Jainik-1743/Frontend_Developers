@@ -1,11 +1,11 @@
 "use client";
 
-import { useAppDispatch, useAppSelector } from "../store/store";
 import {
   increment,
   decrement,
   incrementByAmount,
 } from "../store/slices/counterSlice";
+import { useAppDispatch, useAppSelector } from "../store/store";
 
 export default function Home() {
   const count = useAppSelector((state) => state.counter.value);

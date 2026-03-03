@@ -1,10 +1,9 @@
 import pluginJs from "@eslint/js";
-import importOrder from "eslint-plugin-import";
+import importX from "eslint-plugin-import-x";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import pluginPromise from "eslint-plugin-promise";
 import pluginReact from "eslint-plugin-react";
 import reactHook from "eslint-plugin-react-hooks";
-import tailwind from "eslint-plugin-tailwindcss";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -14,20 +13,19 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   pluginPromise.configs["flat/recommended"],
-  ...tailwind.configs["flat/recommended"],
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   { languageOptions: { globals: globals.browser } },
   {
     plugins: {
       "react-hooks": reactHook,
-      import: importOrder,
+      "import-x": importX,
       "jsx-a11y": jsxA11y,
     },
   },
   {
     settings: {
       react: {
-        version: "detect",
+        version: "19",
       },
     },
   },
@@ -44,7 +42,7 @@ export default [
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       eqeqeq: ["error", "always"],
-      "import/order": [
+      "import-x/order": [
         "error",
         {
           groups: [
@@ -75,8 +73,7 @@ export default [
           },
         },
       ],
-      // Tailwind CSS
-      "tailwindcss/no-custom-classname": "error",
+
       // Accessibility
       "jsx-a11y/anchor-is-valid": [
         "error",
@@ -113,6 +110,6 @@ export default [
     },
   },
   {
-    ignores: ["node_modules", ".next", ".turbo", "build", "out", "coverage"],
+    ignores: ["node_modules", ".next", ".turbo", "build", "out", "coverage", "eslint.config.mjs"],
   },
 ];

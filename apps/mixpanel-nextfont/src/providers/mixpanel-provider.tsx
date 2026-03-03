@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect } from "react";
+
 import { initializeMixpanel } from "../services/mixpanel";
 
 interface MixPanelProviderProps {
