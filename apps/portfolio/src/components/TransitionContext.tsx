@@ -10,7 +10,7 @@ import {
 
 import { useRouter } from "next/navigation";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 type Phase = "idle" | "enter" | "exit";
 
@@ -31,15 +31,16 @@ export const useTransition = () => {
 };
 
 const layers = [
-  { id: "mustard", color: "#fcd34d", enterDelay: 0, exitDelay: 0.15 },
-  { id: "peach", color: "#ffedd5", enterDelay: 0.1, exitDelay: 0.1 },
-  { id: "navy", color: "#1e293b", enterDelay: 0.2, exitDelay: 0.05 },
+  { id: "mustard", color: "#fcd34d", enterDelay: 0, exitDelay: 0.12 },
+  { id: "peach", color: "#ffedd5", enterDelay: 0.06, exitDelay: 0.06 },
+  { id: "navy", color: "#1e293b", enterDelay: 0.12, exitDelay: 0 },
 ];
 
 export const TransitionProvider = ({ children }: { children: ReactNode }) => {
   const [phase, setPhase] = useState<Phase>("idle");
   const [pendingHref, setPendingHref] = useState<string | null>(null);
   const router = useRouter();
+  const prefersReducedMotion = useReducedMotion();
 
   const startTransition = useCallback(
     (href: string) => {
@@ -58,12 +59,15 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
         router.push(pendingHref);
         setPendingHref(null);
       }
-      // Small delay for Next.js to swap the page content behind the overlay
-      setTimeout(() => {
-        setPhase("exit");
-      }, 150);
+      // Short handoff delay so route content can swap behind the overlay.
+      setTimeout(
+        () => {
+          setPhase("exit");
+        },
+        prefersReducedMotion ? 0 : 80,
+      );
     },
-    [pendingHref, router],
+    [pendingHref, prefersReducedMotion, router],
   );
 
   // Called when the last exit block finishes → back to idle
@@ -81,8 +85,8 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
         <div className="fixed inset-0 z-[100] pointer-events-none">
           {layers.map((layer) => (
             <motion.div
-              animate={phase === "enter" ? { scaleX: 1 } : { scaleX: 0 }}
-              initial={phase === "enter" ? { scaleX: 0 } : { scaleX: 1 }}
+              animate={phase === "enter" ? { y: "0%" } : { y: "100%" }}
+              initial={{ y: "-100%" }}
               key={layer.id}
               onAnimationComplete={() => {
                 if (phase === "enter") {
@@ -95,12 +99,16 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
                 position: "absolute",
                 inset: 0,
                 backgroundColor: layer.color,
-                transformOrigin: phase === "enter" ? "left" : "right",
+                willChange: "transform",
               }}
               transition={{
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-                delay: phase === "enter" ? layer.enterDelay : layer.exitDelay,
+                duration: prefersReducedMotion ? 0.01 : 0.72,
+                ease: [0.22, 0.85, 0.24, 1],
+                delay: prefersReducedMotion
+                  ? 0
+                  : phase === "enter"
+                    ? layer.enterDelay
+                    : layer.exitDelay,
               }}
             />
           ))}
