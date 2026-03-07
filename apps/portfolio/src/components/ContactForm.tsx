@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+import { Button } from "@repo/ui/components/ui/button";
+import { Input } from "@repo/ui/components/ui/input";
+import { Textarea } from "@repo/ui/components/ui/textarea";
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     title: "",
@@ -25,9 +29,10 @@ export default function ContactForm() {
         </span>
       </h2>
       <p className="text-lg text-[#1e293b] mb-12">
-        If you&apos;ve got a vision, I&apos;ve got skills,{" "}
+        Looking for a React/Next.js developer for responsive, clean, and
+        maintainable frontend work?{" "}
         <span className="bg-[#ffedd5] px-2 py-0.5">
-          let&apos;s create something impactful together.
+          Let&apos;s build it together.
         </span>
       </p>
 
@@ -44,8 +49,8 @@ export default function ContactForm() {
             >
               Title
             </label>
-            <input
-              className="w-full px-4 py-3 bg-white border-b-2 border-[#e2e8f0] focus:border-[#1e293b] outline-none transition-colors text-[#1e293b] placeholder:text-[#94a3b8]"
+            <Input
+              className="w-full px-4 py-3 bg-white border-b-2 border-x-0 border-t-0 rounded-none border-[#e2e8f0] focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-[#1e293b] transition-colors text-[#1e293b] placeholder:text-[#94a3b8]"
               id="title"
               onChange={(e) =>
                 setFormData({ ...formData, title: e.target.value })
@@ -63,8 +68,8 @@ export default function ContactForm() {
             >
               Email
             </label>
-            <input
-              className="w-full px-4 py-3 bg-white border-b-2 border-[#e2e8f0] focus:border-[#1e293b] outline-none transition-colors text-[#1e293b] placeholder:text-[#94a3b8]"
+            <Input
+              className="w-full px-4 py-3 bg-white border-b-2 border-x-0 border-t-0 rounded-none border-[#e2e8f0] focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-[#1e293b] transition-colors text-[#1e293b] placeholder:text-[#94a3b8]"
               id="email"
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
@@ -82,8 +87,8 @@ export default function ContactForm() {
             >
               Message
             </label>
-            <textarea
-              className="w-full px-4 py-3 bg-white border-b-2 border-[#e2e8f0] focus:border-[#1e293b] outline-none transition-colors text-[#1e293b] placeholder:text-[#94a3b8] resize-y min-h-[120px]"
+            <Textarea
+              className="w-full px-4 py-3 bg-white border-b-2 border-x-0 border-t-0 rounded-none border-[#e2e8f0] focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-[#1e293b] transition-colors text-[#1e293b] placeholder:text-[#94a3b8] resize-y min-h-[120px]"
               id="message"
               onChange={(e) =>
                 setFormData({ ...formData, message: e.target.value })
@@ -109,12 +114,13 @@ export default function ContactForm() {
             </div>
           </div>
 
-          <button
+          <Button
             className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-white font-bold py-4 rounded-lg transition-colors mt-2"
             type="submit"
+            variant="default"
           >
             Send
-          </button>
+          </Button>
         </form>
 
         {/* Right: Contact Info */}
@@ -139,7 +145,9 @@ export default function ContactForm() {
             </div>
             <div>
               <h3 className="text-base font-bold text-[#1e293b]">Email</h3>
-              <p className="text-[#64748b] text-sm">jainik@jainikpatel.com</p>
+              <p className="text-[#64748b] text-sm">
+                jainikpatel1743@gmail.com
+              </p>
             </div>
           </div>
 
@@ -157,8 +165,8 @@ export default function ContactForm() {
               </svg>
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#1e293b]">WhatsApp</h3>
-              <p className="text-[#64748b] text-sm">+91-XXXXXXXXXX</p>
+              <h3 className="text-base font-bold text-[#1e293b]">Phone</h3>
+              <p className="text-[#64748b] text-sm">+91 9909126589</p>
             </div>
           </div>
 
@@ -182,7 +190,7 @@ export default function ContactForm() {
             </div>
             <div>
               <h3 className="text-base font-bold text-[#1e293b]">Address</h3>
-              <p className="text-[#64748b] text-sm">Gujarat, India</p>
+              <p className="text-[#64748b] text-sm">Ahmedabad, India</p>
             </div>
           </div>
         </div>

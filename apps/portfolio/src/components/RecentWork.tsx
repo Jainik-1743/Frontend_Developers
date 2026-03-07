@@ -4,21 +4,21 @@ export default function RecentWork() {
   const projects = [
     {
       id: 1,
-      name: "PET - Project Expense Tracker",
-      badge: "Personal",
+      name: "RBAC Admin Dashboard",
+      badge: "Professional",
       description:
-        "Built a full-stack expense tracker with reusable, standalone UI components and schema-driven APIs, delivering a clean...",
-      tech: ["Angular", "Nestjs", "OAuth 2.0", "+3"],
+        "Implemented secure role-based access control, protected admin/user routes, and delivered cleaner permission management...",
+      tech: ["React", "Next.js", "TypeScript", "RBAC"],
       link: "#",
       repo: "#",
     },
     {
       id: 2,
-      name: "Frankton Fresh + Admin Panel",
+      name: "Reusable Component System",
       badge: "Professional",
       description:
-        "Built an eCommerce marketplace for Frankton Fresh, a local New Zealand store, connecting customers with a wide range of fresh...",
-      tech: ["NextJS", "Postgres", "TypeORM", "+1"],
+        "Built reusable React components and shared UI patterns that reduced code redundancy and improved feature delivery speed...",
+      tech: ["React", "Storybook", "Tailwind CSS", "+1"],
       link: "#",
       repo: null,
     },

@@ -2,70 +2,72 @@
 
 import { useState } from "react";
 
+import { Button } from "@repo/ui/components/ui/button";
+
 const allProjects = [
   {
     id: 1,
-    name: "PET - Project Expense Tracker",
-    badge: "Personal",
+    name: "RBAC Admin Dashboard",
+    badge: "Professional",
     description:
-      "Built a full-stack expense tracker with reusable, standalone UI components and schema-driven APIs, delivering a clean architecture...",
-    tech: ["Angular", "Nestjs", "OAuth 2.0", "+3"],
+      "Implemented secure Role-Based Access Control flows to manage Admin and User permissions with protected routes and clean access boundaries.",
+    tech: ["React", "Next.js", "TypeScript", "RBAC"],
     link: "#",
     repo: "#",
   },
   {
     id: 2,
-    name: "Frankton Fresh + Admin Panel",
+    name: "Responsive Web Platform",
     badge: "Professional",
     description:
-      "Built an eCommerce marketplace for Frankton Fresh, a local New Zealand store, connecting customers with a wide range of fresh...",
-    tech: ["NextJS", "Postgres", "TypeORM", "+1"],
+      "Delivered responsive page layouts across mobile, tablet, and desktop with strong attention to consistency, spacing, and UX quality.",
+    tech: ["React", "Tailwind CSS", "JavaScript", "UI/UX"],
     link: "#",
     repo: null,
   },
   {
     id: 3,
-    name: "CloudQuarks Dashboard",
+    name: "Reusable Component Library",
     badge: "Professional",
     description:
-      "An enterprise analytics platform providing real-time insights and interactive data visualization for cloud infrastructure monitoring.",
-    tech: ["React", "TypeScript", "AWS", "+2"],
+      "Built reusable React components and shared UI patterns that reduced code redundancy by 15% and improved long-term maintainability.",
+    tech: ["React", "Storybook", "TypeScript", "Shadcn UI"],
     link: "#",
     repo: "#",
   },
   {
     id: 4,
-    name: "Portfolio Website",
+    name: "Accessibility-First Interface",
     badge: "Personal",
     description:
-      "A minimalist, typography-driven portfolio built with Next.js featuring premium page transitions and a custom design system.",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      "Applied accessibility best practices to create user-friendly and inclusive interfaces with clear semantics and keyboard-friendly interactions.",
+    tech: ["React", "HTML5", "CSS3", "A11y"],
     link: "#",
     repo: "#",
   },
   {
     id: 5,
-    name: "Vuzec Platform",
+    name: "Cross-Browser Stability Work",
     badge: "Professional",
     description:
-      "A Web3 platform allowing artists to tokenize royalties. Built intuitive onboarding components and seamless dynamic routing for profiles.",
-    tech: ["React", "Ethers.js", "shadcn/ui"],
+      "Resolved cross-browser compatibility issues to ensure consistent behavior and visual output across all major modern browsers.",
+    tech: ["React", "Testing", "Debugging", "Compatibility"],
     link: "#",
     repo: "#",
   },
   {
     id: 6,
-    name: "Open Source Component Library",
-    badge: "Open Source",
+    name: "Performance-Focused Frontend",
+    badge: "Professional",
     description:
-      "A curated set of reusable React components with Storybook documentation, following atomic design principles and WAI-ARIA standards.",
-    tech: ["React", "Storybook", "Jest"],
+      "Focused on clean code and optimized components that contributed to a measurable 20% reduction in bugs and improved overall frontend performance.",
+    tech: ["Next.js", "TypeScript", "SWR", "Performance"],
     link: "#",
     repo: "#",
   },
 ];
 
-const tabs = ["All", "Personal", "Professional", "Open Source"];
+const tabs = ["All", "Professional", "Personal"];
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("All");
@@ -86,15 +88,25 @@ export default function Projects() {
           </span>
         </h2>
         <div className="flex items-center gap-3 text-sm text-[#64748b]">
-          <button className="w-8 h-8 border border-[#e2e8f0] rounded flex items-center justify-center hover:bg-[#e2e8f0]/50 transition-colors">
+          <Button
+            className="w-8 h-8 border border-[#e2e8f0] rounded flex items-center justify-center hover:bg-[#e2e8f0]/50 transition-colors p-0"
+            size="icon"
+            type="button"
+            variant="outline"
+          >
             &lt;
-          </button>
+          </Button>
           <span className="w-8 h-8 border border-[#1e293b] rounded flex items-center justify-center text-[#1e293b] font-semibold bg-white">
             1
           </span>
-          <button className="w-8 h-8 border border-[#e2e8f0] rounded flex items-center justify-center hover:bg-[#e2e8f0]/50 transition-colors">
+          <Button
+            className="w-8 h-8 border border-[#e2e8f0] rounded flex items-center justify-center hover:bg-[#e2e8f0]/50 transition-colors p-0"
+            size="icon"
+            type="button"
+            variant="outline"
+          >
             &gt;
-          </button>
+          </Button>
           <span className="ml-4 px-3 py-1.5 border border-[#e2e8f0] rounded text-[#1e293b]">
             10 / page
           </span>
@@ -104,7 +116,7 @@ export default function Projects() {
       {/* Tabs */}
       <div className="flex gap-2 mb-10">
         {tabs.map((tab) => (
-          <button
+          <Button
             className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
               activeTab === tab
                 ? "bg-[#f97316] text-white"
@@ -112,9 +124,11 @@ export default function Projects() {
             }`}
             key={tab}
             onClick={() => setActiveTab(tab)}
+            type="button"
+            variant="ghost"
           >
             {tab}
-          </button>
+          </Button>
         ))}
       </div>
 

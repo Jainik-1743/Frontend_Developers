@@ -1,44 +1,6 @@
 import Link from "next/link";
 import BlogHeader from "./components/BlogHeader";
-
-const posts = [
-  {
-    slug: "react-performance",
-    title: "Advanced React Performance Optimization",
-    description:
-      "A deep dive into fixing common performance bottlenecks in enterprise React applications. Learn when (and when not) to use useMemo, useCallback, and React.memo.",
-    date: "March 6, 2026",
-    readTime: "12 min read",
-    tags: ["React", "Performance", "Enterprise"],
-  },
-  {
-    slug: "nextjs-16-app-router",
-    title: "Next.js 16 App Router: Best Practices",
-    description:
-      "A detailed guide on structuring and building applications using the Next.js 16 App Router, covering use cache, Server Actions, and optimal folder structures.",
-    date: "March 4, 2026",
-    readTime: "10 min read",
-    tags: ["Next.js", "App Router", "Server Components"],
-  },
-  {
-    slug: "zustand-vs-redux",
-    title: "Modern State Management: Zustand vs. Redux Toolkit",
-    description:
-      "An architectural review comparing Zustand and Redux Toolkit for managing state in modern React applications. Which should you choose?",
-    date: "March 2, 2026",
-    readTime: "8 min read",
-    tags: ["Zustand", "Redux", "State Management"],
-  },
-  {
-    slug: "custom-hooks",
-    title: "Mastering Custom Hooks for Reusable Logic",
-    description:
-      "A practical, code-heavy guide to building advanced custom hooks like useDebounce, useLocalStorage, and useIntersectionObserver.",
-    date: "February 28, 2026",
-    readTime: "9 min read",
-    tags: ["React", "Custom Hooks", "TypeScript"],
-  },
-];
+import { blogs } from "./lib/blog-posts";
 
 export default function BlogHome() {
   return (
@@ -59,7 +21,7 @@ export default function BlogHome() {
         </div>
 
         <div className="flex flex-col gap-6">
-          {posts.map((post) => (
+          {blogs.map((post) => (
             <Link
               className="group block p-6 bg-white border border-[#e2e8f0] rounded-xl hover:shadow-lg hover:border-[#f97316]/30 transition-all duration-300"
               href={`/blog/${post.slug}`}
@@ -76,7 +38,7 @@ export default function BlogHome() {
               <p className="text-[#64748b] text-sm leading-relaxed mb-4">
                 {post.description}
               </p>
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {post.tags.map((tag) => (
                   <span
                     className="px-3 py-1 text-xs font-medium text-[#1e293b] bg-[#fbf9f6] rounded-full border border-[#e2e8f0]"

@@ -31,43 +31,39 @@ export const useTransition = () => {
 };
 
 const layers = [
-  { id: "mustard", color: "#fcd34d", enterDelay: 0, exitDelay: 0.12 },
-  { id: "peach", color: "#ffedd5", enterDelay: 0.06, exitDelay: 0.06 },
-  { id: "navy", color: "#1e293b", enterDelay: 0.12, exitDelay: 0 },
+  { id: "mustard", color: "#fcd34d", enterDelay: 0, exitDelay: 0.08 },
+  { id: "peach", color: "#ffedd5", enterDelay: 0.04, exitDelay: 0.04 },
+  { id: "navy", color: "#1e293b", enterDelay: 0.08, exitDelay: 0 },
 ];
 
 export const TransitionProvider = ({ children }: { children: ReactNode }) => {
   const [phase, setPhase] = useState<Phase>("idle");
-  const [pendingHref, setPendingHref] = useState<string | null>(null);
   const router = useRouter();
   const prefersReducedMotion = useReducedMotion();
 
   const startTransition = useCallback(
     (href: string) => {
       if (phase !== "idle") return;
-      setPendingHref(href);
+      // Route changes immediately; overlay animation runs across navigation.
+      router.push(href);
       setPhase("enter");
     },
-    [phase],
+    [phase, router],
   );
 
-  // Called when the last enter block finishes → push route + start exit
+  // Called when the last enter block finishes → start exit
   const handleEnterComplete = useCallback(
     (layerId: string) => {
       if (layerId !== "navy") return; // Only trigger on the last layer
-      if (pendingHref) {
-        router.push(pendingHref);
-        setPendingHref(null);
-      }
-      // Short handoff delay so route content can swap behind the overlay.
+      // Tiny handoff delay so route content can swap behind overlay.
       setTimeout(
         () => {
           setPhase("exit");
         },
-        prefersReducedMotion ? 0 : 80,
+        prefersReducedMotion ? 0 : 30,
       );
     },
-    [pendingHref, prefersReducedMotion, router],
+    [prefersReducedMotion],
   );
 
   // Called when the last exit block finishes → back to idle
@@ -85,8 +81,8 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
         <div className="fixed inset-0 z-[100] pointer-events-none">
           {layers.map((layer) => (
             <motion.div
-              animate={phase === "enter" ? { y: "0%" } : { y: "100%" }}
-              initial={{ y: "-100%" }}
+              animate={phase === "enter" ? { y: "0%" } : { y: "-100%" }}
+              initial={phase === "enter" ? { y: "-100%" } : { y: "0%" }}
               key={layer.id}
               onAnimationComplete={() => {
                 if (phase === "enter") {
@@ -102,8 +98,8 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
                 willChange: "transform",
               }}
               transition={{
-                duration: prefersReducedMotion ? 0.01 : 0.72,
-                ease: [0.22, 0.85, 0.24, 1],
+                duration: prefersReducedMotion ? 0.01 : 0.42,
+                ease: [0.33, 1, 0.68, 1],
                 delay: prefersReducedMotion
                   ? 0
                   : phase === "enter"

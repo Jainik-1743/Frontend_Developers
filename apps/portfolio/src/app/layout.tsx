@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
 import RightTimeline from "@/components/RightTimeline";
 import Sidebar from "@/components/Sidebar";
+import { ThemeProvider } from "@/components/theme-provider";
 import { TransitionProvider } from "@/components/TransitionContext";
 
-const inter = Inter({
+const poppins = Poppins({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -23,17 +25,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} font-sans antialiased min-h-screen flex`}
+        className={`${poppins.variable} font-sans antialiased min-h-screen flex`}
       >
-        <TransitionProvider>
-          <Sidebar />
-          <div className="flex-1 lg:ml-64 lg:mr-24 flex flex-col min-h-screen relative overflow-hidden">
-            {children}
-          </div>
-          <RightTimeline />
-        </TransitionProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          disableTransitionOnChange
+          enableSystem
+        >
+          <TransitionProvider>
+            <Sidebar />
+            <div className="flex-1 lg:ml-72 lg:mr-24 flex flex-col min-h-screen relative overflow-hidden">
+              {children}
+            </div>
+            <RightTimeline />
+          </TransitionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

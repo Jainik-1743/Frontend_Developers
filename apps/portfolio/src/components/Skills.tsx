@@ -2,53 +2,55 @@ export default function Skills() {
   const services = [
     {
       id: "01",
-      title: "Bringing Your Online Vision to Life",
+      title: "Frontend Engineering",
       description:
-        "I transform your ideas into vibrant, interactive websites that captivate your audience and drive results. I create stunning and user-friendly experiences. My backend work with Node.js and Express ensures your site is smooth, reliable, and secure.",
+        "I build clean, scalable, and responsive web interfaces using React.js and Next.js with a strong focus on maintainability and performance.",
     },
     {
       id: "02",
-      title: "Crafting Engaging Mobile Journeys",
+      title: "Reusable Component Systems",
       description:
-        "I bring your mobile app ideas to life with intuitive and engaging experiences for both iOS and Android. With React Native and Flutter, I design apps that are visually appealing and perform seamlessly. My backend solutions keep your app responsive and reliable.",
+        "I create reusable UI components and shared patterns that reduce development time, improve consistency, and speed up new feature delivery.",
     },
     {
       id: "03",
-      title: "Revolutionizing Desktop Applications",
+      title: "Quality and UX Standards",
       description:
-        "I design cross-platform desktop applications that blend functionality with elegance, offering a smooth and productive experience. Using Electron, I develop apps that fit perfectly into the desktop environment. My backend solutions ensure efficient performance and effortless data management.",
+        "I apply accessibility best practices, responsive design, and cross-browser testing to ensure reliable user experiences across all major devices and browsers.",
     },
   ];
 
   const skillCategories = [
     {
-      name: "Web",
+      name: "Frontend",
       skills: [
+        "HTML5",
+        "CSS3",
         "JavaScript",
         "TypeScript",
-        "Angular",
-        "Next",
         "React",
-        "API Integration",
-        "Axios",
-        "GraphQL",
+        "Next.js",
         "Tailwind CSS",
+        "Shadcn UI",
       ],
     },
     {
-      name: "Mobile",
-      skills: ["React Native", "Flutter", "iOS Development", "Android"],
+      name: "Data/API",
+      skills: ["GraphQL", "SWR"],
     },
     {
-      name: "Backend/Db",
+      name: "Testing/Tools",
+      skills: ["Cypress", "Storybook"],
+    },
+    {
+      name: "Practices",
       skills: [
-        "Node.js",
-        "Express",
-        "NestJS",
-        "PostgreSQL",
-        "MongoDB",
-        "TypeORM",
-        "AWS",
+        "Accessibility",
+        "Responsive Design",
+        "Component Reusability",
+        "Cross-Browser Compatibility",
+        "RBAC Integration",
+        "Performance Optimization",
       ],
     },
   ];
@@ -61,9 +63,9 @@ export default function Skills() {
       {/* Top 3 Columns */}
       <h2 className="text-3xl font-bold text-[#1e293b] mb-16">
         <span className="underline decoration-2 underline-offset-4">
-          I can help
+          What I bring
         </span>{" "}
-        you with...
+        to projects...
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-24 cursor-default">
@@ -90,7 +92,7 @@ export default function Skills() {
         <span className="underline decoration-2 underline-offset-4">
           Skills
         </span>{" "}
-        i offer...
+        from my experience...
       </h2>
 
       <div className="flex flex-col gap-8">

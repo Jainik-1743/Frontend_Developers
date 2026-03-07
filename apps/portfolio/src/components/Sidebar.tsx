@@ -16,20 +16,23 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-transparent border-r border-[#e2e8f0]/40 flex flex-col pt-24 pb-8 z-40 hidden lg:flex">
-      <nav className="flex flex-col w-full gap-2 mt-8">
+    <aside className="portfolio-sidebar fixed left-0 top-0 h-screen w-72 bg-transparent flex flex-col pt-24 pb-8 z-40 hidden lg:flex">
+      <nav className="flex flex-col w-full gap-1 mt-8 px-6">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
             <TransitionLink
-              className={`relative flex items-center justify-between px-8 py-3 w-full transition-all duration-300 ${
+              className={`portfolio-sidebar-link relative flex items-center justify-between px-4 py-3.5 w-full transition-all duration-200 rounded-none ${
                 isActive
-                  ? "text-[#f97316] font-semibold bg-gradient-to-r from-[#f97316]/10 to-transparent border-l-2 border-[#f97316]"
-                  : "text-[#1e293b] hover:text-[#f97316] hover:bg-[#1e293b]/5 border-l-2 border-transparent"
+                  ? "portfolio-sidebar-link-active text-[#ff5b00] font-semibold bg-[#fff3ee]"
+                  : "text-[#1e293b] hover:text-[#ff5b00] hover:bg-[#f5f7fb]"
               }`}
               href={item.href}
               key={item.id}
             >
+              {isActive && (
+                <span className="absolute left-0 top-2.5 bottom-2.5 w-[3px] rounded bg-[#ff6b00]" />
+              )}
               <span>{item.name}</span>
               {isActive && (
                 <svg
