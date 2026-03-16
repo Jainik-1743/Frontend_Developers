@@ -19,7 +19,7 @@ const fetchPosts = async (): Promise<Post[]> => {
   return data;
 };
 
-export default function BasicPage() {
+export default function BasicPage(): React.JSX.Element {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["posts", "basic"],
     queryFn: fetchPosts,

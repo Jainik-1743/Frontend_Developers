@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rx-001",
+    "patientId": "pat-001",
+    "medication": "Ceftriaxone",
+    "dosage": "1g",
+    "frequency": "Twice daily"
+  },
+  {
+    "id": "rx-002",
+    "patientId": "pat-002",
+    "medication": "Azithromycin",
+    "dosage": "500mg",
+    "frequency": "Once daily"
+  },
+  {
+    "id": "rx-003",
+    "patientId": "pat-003",
+    "medication": "Furosemide",
+    "dosage": "40mg",
+    "frequency": "Once daily"
+  }
+]

@@ -1,0 +1,1 @@
+{"v":5,"entries":{"healthcare-patientcard--default":{"type":"story","id":"healthcare-patientcard--default","name":"Default","title":"Healthcare/PatientCard","importPath":"./src/components/patient-card.stories.tsx","componentPath":"./src/components/patient-card.tsx","tags":["dev","test"]}}}

@@ -29,7 +29,7 @@ const createPost = async (newPost: Omit<Post, "id">): Promise<Post> => {
   return data;
 };
 
-export default function MutationPage() {
+export default function MutationPage(): React.JSX.Element {
   const queryClient = useQueryClient();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");

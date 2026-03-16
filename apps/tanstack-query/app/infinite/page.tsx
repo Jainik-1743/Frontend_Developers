@@ -27,7 +27,7 @@ const fetchPostsPage = async ({
   };
 };
 
-export default function InfinitePage() {
+export default function InfinitePage(): React.JSX.Element {
   const {
     data,
     fetchNextPage,

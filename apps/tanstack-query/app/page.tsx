@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Button } from "@repo/ui/components/ui/button";
 
-export default function Home() {
+export default function Home(): React.JSX.Element {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-24 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 flex-1 items-center justify-center max-w-3xl text-center">

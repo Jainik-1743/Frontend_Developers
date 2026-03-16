@@ -1,0 +1,87 @@
+[
+  {
+    "id": "pat-001",
+    "name": "Aarav Patel",
+    "birthDate": "1984-07-12",
+    "gender": "Male",
+    "condition": "Post-operative recovery",
+    "riskLevel": "Moderate",
+    "room": "ICU-204",
+    "status": "Admitted",
+    "telemetry": [
+      { "timestamp": "2026-03-15T08:00:00Z", "heartRate": 82, "bloodOxygen": 97 },
+      { "timestamp": "2026-03-15T09:00:00Z", "heartRate": 84, "bloodOxygen": 98 },
+      { "timestamp": "2026-03-15T10:00:00Z", "heartRate": 79, "bloodOxygen": 98 },
+      { "timestamp": "2026-03-15T11:00:00Z", "heartRate": 81, "bloodOxygen": 97 },
+      { "timestamp": "2026-03-15T12:00:00Z", "heartRate": 78, "bloodOxygen": 99 }
+    ]
+  },
+  {
+    "id": "pat-002",
+    "name": "Mira Shah",
+    "birthDate": "1992-11-03",
+    "gender": "Female",
+    "condition": "Community-acquired pneumonia",
+    "riskLevel": "High",
+    "room": "WARD-118",
+    "status": "Critical monitoring",
+    "telemetry": [
+      { "timestamp": "2026-03-15T08:00:00Z", "heartRate": 96, "bloodOxygen": 92 },
+      { "timestamp": "2026-03-15T09:00:00Z", "heartRate": 101, "bloodOxygen": 91 },
+      { "timestamp": "2026-03-15T10:00:00Z", "heartRate": 98, "bloodOxygen": 93 },
+      { "timestamp": "2026-03-15T11:00:00Z", "heartRate": 95, "bloodOxygen": 94 },
+      { "timestamp": "2026-03-15T12:00:00Z", "heartRate": 92, "bloodOxygen": 95 }
+    ]
+  },
+  {
+    "id": "pat-003",
+    "name": "Rohan Mehta",
+    "birthDate": "1976-01-28",
+    "gender": "Male",
+    "condition": "Heart failure management",
+    "riskLevel": "High",
+    "room": "CCU-011",
+    "status": "Observation",
+    "telemetry": [
+      { "timestamp": "2026-03-15T08:00:00Z", "heartRate": 74, "bloodOxygen": 96 },
+      { "timestamp": "2026-03-15T09:00:00Z", "heartRate": 76, "bloodOxygen": 95 },
+      { "timestamp": "2026-03-15T10:00:00Z", "heartRate": 73, "bloodOxygen": 95 },
+      { "timestamp": "2026-03-15T11:00:00Z", "heartRate": 75, "bloodOxygen": 96 },
+      { "timestamp": "2026-03-15T12:00:00Z", "heartRate": 72, "bloodOxygen": 97 }
+    ]
+  },
+  {
+    "id": "pat-004",
+    "name": "Nisha Rao",
+    "birthDate": "1989-09-17",
+    "gender": "Female",
+    "condition": "Type 2 diabetes stabilization",
+    "riskLevel": "Low",
+    "room": "WARD-302",
+    "status": "Stable",
+    "telemetry": [
+      { "timestamp": "2026-03-15T08:00:00Z", "heartRate": 71, "bloodOxygen": 99 },
+      { "timestamp": "2026-03-15T09:00:00Z", "heartRate": 70, "bloodOxygen": 98 },
+      { "timestamp": "2026-03-15T10:00:00Z", "heartRate": 72, "bloodOxygen": 99 },
+      { "timestamp": "2026-03-15T11:00:00Z", "heartRate": 69, "bloodOxygen": 99 },
+      { "timestamp": "2026-03-15T12:00:00Z", "heartRate": 68, "bloodOxygen": 99 }
+    ]
+  },
+  {
+    "id": "pat-005",
+    "name": "Kabir Iyer",
+    "birthDate": "1968-04-21",
+    "gender": "Male",
+    "condition": "Stroke rehabilitation",
+    "riskLevel": "Moderate",
+    "room": "REHAB-014",
+    "status": "Recovery",
+    "telemetry": [
+      { "timestamp": "2026-03-15T08:00:00Z", "heartRate": 77, "bloodOxygen": 97 },
+      { "timestamp": "2026-03-15T09:00:00Z", "heartRate": 79, "bloodOxygen": 96 },
+      { "timestamp": "2026-03-15T10:00:00Z", "heartRate": 80, "bloodOxygen": 96 },
+      { "timestamp": "2026-03-15T11:00:00Z", "heartRate": 78, "bloodOxygen": 97 },
+      { "timestamp": "2026-03-15T12:00:00Z", "heartRate": 76, "bloodOxygen": 97 }
+    ]
+  }
+]

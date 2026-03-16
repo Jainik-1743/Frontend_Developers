@@ -1,0 +1,9 @@
+[
+  { "day": "Mon", "admissions": 18 },
+  { "day": "Tue", "admissions": 24 },
+  { "day": "Wed", "admissions": 21 },
+  { "day": "Thu", "admissions": 26 },
+  { "day": "Fri", "admissions": 23 },
+  { "day": "Sat", "admissions": 16 },
+  { "day": "Sun", "admissions": 12 }
+]

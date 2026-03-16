@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "types": ["jest", "node"],
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "src/components/ClinicalNoteSummarizer.tsx",
+    "src/components/ClinicalPathway.tsx",
+    "src/components/PatientAdmissionsChart.tsx",
+    "src/components/PatientCard.stories.tsx",
+    "src/components/PatientCard.tsx",
+    "src/components/Sidebar.tsx",
+    "src/components/Topbar.tsx",
+    "src/components/VitalsPlotly.tsx"
+  ]
+}

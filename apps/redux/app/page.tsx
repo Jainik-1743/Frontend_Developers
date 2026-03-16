@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 
 import {
   increment,
@@ -7,7 +8,7 @@ import {
 } from "../store/slices/counterSlice";
 import { useAppDispatch, useAppSelector } from "../store/store";
 
-export default function Home() {
+export default function Home(): React.JSX.Element {
   const count = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
   return (

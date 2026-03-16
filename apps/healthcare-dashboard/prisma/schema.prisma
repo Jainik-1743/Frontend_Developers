@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:mock-only.db"
+}
+
+model Patient {
+  id            String         @id
+  name          String
+  birthDate     DateTime
+  gender        String
+  condition     String
+  riskLevel     String
+  room          String
+  status        String
+  appointments  Appointment[]
+  prescriptions Prescription[]
+}
+
+model Appointment {
+  id          String   @id
+  patientId   String
+  doctorName  String
+  department  String
+  scheduledAt DateTime
+  status      String
+  patient     Patient  @relation(fields: [patientId], references: [id])
+}
+
+model Prescription {
+  id         String  @id
+  patientId  String
+  medication String
+  dosage     String
+  frequency  String
+  patient    Patient @relation(fields: [patientId], references: [id])
+}

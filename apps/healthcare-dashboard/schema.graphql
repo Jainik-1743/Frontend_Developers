@@ -1,0 +1,12 @@
+type PatientDirectoryEntry {
+  id: ID!
+  name: String!
+  age: Int!
+  gender: String!
+  condition: String!
+  riskLevel: String!
+}
+
+type Query {
+  patients: [PatientDirectoryEntry!]!
+}

@@ -21,7 +21,7 @@ const fetchPostsPage = async (page: number, limit: number): Promise<Post[]> => {
   return data;
 };
 
-export default function PaginationPage() {
+export default function PaginationPage(): React.JSX.Element {
   const [page, setPage] = useState(1);
   const limit = 5;
 

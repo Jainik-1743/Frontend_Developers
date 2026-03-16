@@ -1,0 +1,44 @@
+[
+  {
+    "timestamp": "2024-03-15T08:00:00Z",
+    "heartRate": 72,
+    "systolic": 120,
+    "diastolic": 80,
+    "spO2": 98
+  },
+  {
+    "timestamp": "2024-03-15T09:00:00Z",
+    "heartRate": 75,
+    "systolic": 122,
+    "diastolic": 82,
+    "spO2": 97
+  },
+  {
+    "timestamp": "2024-03-15T10:00:00Z",
+    "heartRate": 88,
+    "systolic": 135,
+    "diastolic": 89,
+    "spO2": 95
+  },
+  {
+    "timestamp": "2024-03-15T11:00:00Z",
+    "heartRate": 105,
+    "systolic": 145,
+    "diastolic": 95,
+    "spO2": 92
+  },
+  {
+    "timestamp": "2024-03-15T12:00:00Z",
+    "heartRate": 92,
+    "systolic": 130,
+    "diastolic": 85,
+    "spO2": 96
+  },
+  {
+    "timestamp": "2024-03-15T13:00:00Z",
+    "heartRate": 78,
+    "systolic": 118,
+    "diastolic": 78,
+    "spO2": 99
+  }
+]
