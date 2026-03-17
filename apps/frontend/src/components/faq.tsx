@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "How does it work?",
     answer:
-      "Artists can tokenize their royalties and sell them to fans as digital assets. Fans become part-owners and earn a share of the revenue when the music is streamed.",
+      "Artists can their royalties and sell them to fans as digital assets. Fans become part-owners and earn a share of the revenue when the music is streamed.",
   },
   {
     question: "Who can use Vuzec?",
