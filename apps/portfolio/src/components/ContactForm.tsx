@@ -3,10 +3,18 @@
 import { useCallback, useState, useTransition } from "react";
 
 import { Button } from "@repo/ui/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@repo/ui/components/ui/dialog";
 import { Input } from "@repo/ui/components/ui/input";
 import { Textarea } from "@repo/ui/components/ui/textarea";
 import * as Sentry from "@sentry/nextjs";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { toast } from "sonner";
 
 import { submitContactForm } from "../app/actions/contact";
 
@@ -17,6 +25,7 @@ export default function ContactForm() {
     email: "",
     message: "",
   });
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleSubmit = useCallback(
@@ -30,7 +39,7 @@ export default function ContactForm() {
       });
 
       if (!formData.title || !formData.email || !formData.message) {
-        alert("All fields are required!");
+        toast.error("All fields are required!");
         return;
       }
 
@@ -39,7 +48,7 @@ export default function ContactForm() {
           "reCAPTCHA not available on form submit",
           "warning",
         );
-        alert("reCAPTCHA not yet available. Please wait a moment.");
+        toast.warning("reCAPTCHA not yet available. Please wait a moment.");
         return;
       }
 
@@ -55,7 +64,7 @@ export default function ContactForm() {
               "info",
             );
             setFormData({ title: "", email: "", message: "" });
-            alert("Message sent successfully!");
+            setShowSuccessDialog(true);
           } else {
             Sentry.captureException(
               new Error(result.error || "Form submission failed"),
@@ -63,13 +72,15 @@ export default function ContactForm() {
                 extra: { result, formData },
               },
             );
-            alert(result.error || "Failed to send message. Please try again.");
+            toast.error(
+              result.error || "Failed to send message. Please try again.",
+            );
           }
         } catch (err) {
           Sentry.captureException(err, {
             extra: { formData },
           });
-          alert("An unexpected error occurred. Please try again.");
+          toast.error("An unexpected error occurred. Please try again.");
         }
       });
     },
@@ -235,6 +246,43 @@ export default function ContactForm() {
           </div>
         </div>
       </div>
+
+      {/* Success Dialog */}
+      <Dialog onOpenChange={setShowSuccessDialog} open={showSuccessDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                <svg
+                  fill="none"
+                  height="20"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="20"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              Message Sent!
+            </DialogTitle>
+            <DialogDescription className="pt-2 text-base">
+              Thank you for reaching out. I have received your message and will
+              get back to you as soon as possible.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end mt-4">
+            <Button
+              className="bg-foreground text-background"
+              onClick={() => setShowSuccessDialog(false)}
+            >
+              Close
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

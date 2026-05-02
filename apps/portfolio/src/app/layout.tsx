@@ -1,5 +1,7 @@
+import { Toaster } from "@repo/ui/components/ui/sonner";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+
 import "./globals.css";
 
 import RightTimeline from "@/components/RightTimeline";
@@ -42,6 +44,7 @@ export default function RootLayout({
             </div>
             <RightTimeline />
           </TransitionProvider>
+          <Toaster position="top-right" richColors />
         </ThemeProvider>
       </body>
     </html>
