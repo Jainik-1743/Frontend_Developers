@@ -1,5 +1,5 @@
-import { initializeApp, FirebaseOptions } from "firebase/app";
-import { browserLocalPersistence, initializeAuth } from "firebase/auth";
+import { initializeApp, getApps, getApp, FirebaseOptions } from "firebase/app";
+import { browserLocalPersistence, initializeAuth, Auth } from "firebase/auth";
 
 const firebaseConfig: FirebaseOptions = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -11,8 +11,16 @@ const firebaseConfig: FirebaseOptions = {
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+let _auth: Auth | undefined;
 
-export const auth = initializeAuth(app, {
-  persistence: browserLocalPersistence,
-});
+export function getFirebaseAuth(): Auth {
+  if (_auth) return _auth;
+
+  const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+
+  _auth = initializeAuth(app, {
+    persistence: browserLocalPersistence,
+  });
+
+  return _auth;
+}

@@ -13,7 +13,12 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_MEASUREMENT_ID: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
   },
   images: {
-    domains: ["picsum.photos"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+    ],
   },
 };
 

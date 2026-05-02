@@ -7,13 +7,14 @@ import {
   signOut,
 } from "firebase/auth";
 
-import { auth } from "../firebase/client";
+import { getFirebaseAuth } from "../firebase/client";
 
 export default function useFirebaseAuth() {
   const signInWithGoogleProvider = async (): Promise<
     [UserCredential | null, Error | null]
   > => {
     try {
+      const auth = getFirebaseAuth();
       const googleProvider: AuthProvider =
         new GoogleAuthProvider().setCustomParameters({
           display: "popup",
@@ -33,6 +34,7 @@ export default function useFirebaseAuth() {
 
   const logOut = async (): Promise<[void | null, Error | null]> => {
     try {
+      const auth = getFirebaseAuth();
       await signOut(auth);
       return [null, null];
     } catch (error) {
