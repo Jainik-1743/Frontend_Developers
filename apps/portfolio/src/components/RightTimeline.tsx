@@ -23,19 +23,19 @@ export default function RightTimeline() {
 
   return (
     <div className="fixed right-8 top-0 h-screen flex flex-col items-center justify-center z-40 hidden lg:flex pointer-events-none">
-      <div className="relative h-[40vh] w-px bg-[#1e293b]/20 flex flex-col justify-between items-center py-4">
+      <div className="relative h-[40vh] w-px bg-foreground/20 flex flex-col justify-between items-center py-4">
         {sections.map((section, idx) => {
           const isActive = activeIndex === idx;
           const isPassed = activeIndex > idx;
 
           return (
             <div
-              className={`w-3 h-3 rounded-full border-2 transition-all duration-300 z-10 bg-white ${
+              className={`w-3 h-3 rounded-full border-2 transition-all duration-300 z-10 bg-background ${
                 isActive
-                  ? "border-[#f97316] bg-[#f97316] scale-125"
+                  ? "border-accent bg-accent scale-125"
                   : isPassed
-                    ? "border-[#1e293b]"
-                    : "border-[#1e293b] opacity-40"
+                    ? "border-foreground"
+                    : "border-foreground opacity-40"
               }`}
               key={section.id}
             />
@@ -43,7 +43,7 @@ export default function RightTimeline() {
         })}
         {/* Animated Line Fill */}
         <div
-          className="absolute top-0 left-0 w-full bg-[#1e293b] transition-all duration-500 ease-out z-0"
+          className="absolute top-0 left-0 w-full bg-foreground transition-all duration-500 ease-out z-0"
           style={{ height: `${(activeIndex / (totalDots - 1)) * 100}%` }}
         />
       </div>

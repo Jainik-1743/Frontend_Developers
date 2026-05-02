@@ -12,7 +12,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#888888]">
+      <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted">
         <Link className="hover:text-white transition-colors" href="/">
           Home
         </Link>
@@ -29,7 +29,7 @@ export default function Header() {
           Contact
         </Link>
 
-        <span className="w-[1px] h-4 bg-white/20 mx-2"></span>
+        <span className="w-[1px] h-4 bg-background/20 mx-2"></span>
 
         <Link
           className="hover:text-white transition-colors"

@@ -22,16 +22,16 @@ export default function ContactForm() {
   return (
     <section className="w-full px-6 lg:px-12 py-16 max-w-7xl mx-auto">
       {/* Header */}
-      <h2 className="text-3xl font-bold text-[#1e293b] mb-2">
+      <h2 className="text-3xl font-bold text-foreground mb-2">
         Let&apos;s{" "}
         <span className="underline decoration-[3px] underline-offset-4">
           Work Together
         </span>
       </h2>
-      <p className="text-lg text-[#1e293b] mb-12">
+      <p className="text-lg text-foreground mb-12">
         Looking for a React/Next.js developer for responsive, clean, and
         maintainable frontend work?{" "}
-        <span className="bg-[#ffedd5] px-2 py-0.5">
+        <span className="bg-accent-light px-2 py-0.5">
           Let&apos;s build it together.
         </span>
       </p>
@@ -44,13 +44,13 @@ export default function ContactForm() {
         >
           <div>
             <label
-              className="block text-sm font-bold text-[#1e293b] mb-2"
+              className="block text-sm font-bold text-foreground mb-2"
               htmlFor="title"
             >
               Title
             </label>
             <Input
-              className="w-full px-4 py-3 bg-white border-b-2 border-x-0 border-t-0 rounded-none border-[#e2e8f0] focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-[#1e293b] transition-colors text-[#1e293b] placeholder:text-[#94a3b8]"
+              className="w-full px-4 py-3 bg-background border-b-2 border-x-0 border-t-0 rounded-none border-border focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-foreground transition-colors text-foreground placeholder:text-muted"
               id="title"
               onChange={(e) =>
                 setFormData({ ...formData, title: e.target.value })
@@ -63,13 +63,13 @@ export default function ContactForm() {
 
           <div>
             <label
-              className="block text-sm font-bold text-[#1e293b] mb-2"
+              className="block text-sm font-bold text-foreground mb-2"
               htmlFor="email"
             >
               Email
             </label>
             <Input
-              className="w-full px-4 py-3 bg-white border-b-2 border-x-0 border-t-0 rounded-none border-[#e2e8f0] focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-[#1e293b] transition-colors text-[#1e293b] placeholder:text-[#94a3b8]"
+              className="w-full px-4 py-3 bg-background border-b-2 border-x-0 border-t-0 rounded-none border-border focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-foreground transition-colors text-foreground placeholder:text-muted"
               id="email"
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
@@ -82,13 +82,13 @@ export default function ContactForm() {
 
           <div>
             <label
-              className="block text-sm font-bold text-[#1e293b] mb-2"
+              className="block text-sm font-bold text-foreground mb-2"
               htmlFor="message"
             >
               Message
             </label>
             <Textarea
-              className="w-full px-4 py-3 bg-white border-b-2 border-x-0 border-t-0 rounded-none border-[#e2e8f0] focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-[#1e293b] transition-colors text-[#1e293b] placeholder:text-[#94a3b8] resize-y min-h-[120px]"
+              className="w-full px-4 py-3 bg-background border-b-2 border-x-0 border-t-0 rounded-none border-border focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-foreground transition-colors text-foreground placeholder:text-muted resize-y min-h-[120px]"
               id="message"
               onChange={(e) =>
                 setFormData({ ...formData, message: e.target.value })
@@ -99,23 +99,23 @@ export default function ContactForm() {
           </div>
 
           {/* reCAPTCHA Placeholder */}
-          <div className="flex items-center gap-3 p-4 border border-[#e2e8f0] rounded-md bg-[#fbf9f6] w-max">
+          <div className="flex items-center gap-3 p-4 border border-border rounded-md bg-background w-max">
             <input
-              className="w-5 h-5 accent-[#1e293b]"
+              className="w-5 h-5 accent-foreground"
               id="captcha"
               type="checkbox"
             />
-            <label className="text-sm text-[#64748b]" htmlFor="captcha">
+            <label className="text-sm text-muted" htmlFor="captcha">
               I&apos;m not a robot
             </label>
-            <div className="ml-4 text-[10px] text-[#94a3b8] leading-tight">
-              <div className="font-bold text-[#64748b]">reCAPTCHA</div>
+            <div className="ml-4 text-[10px] text-muted leading-tight">
+              <div className="font-bold text-muted">reCAPTCHA</div>
               <div>Privacy - Terms</div>
             </div>
           </div>
 
           <Button
-            className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-white font-bold py-4 rounded-lg transition-colors mt-2"
+            className="w-full bg-foreground hover:bg-accent text-background font-bold py-4 rounded-lg transition-colors mt-2 hover:border-transparent"
             type="submit"
             variant="default"
           >
@@ -124,12 +124,12 @@ export default function ContactForm() {
         </form>
 
         {/* Right: Contact Info */}
-        <div className="flex flex-col gap-8 md:pl-8 md:border-l-2 md:border-[#e2e8f0]">
+        <div className="flex flex-col gap-8 md:pl-8 md:border-l-2 md:border-border">
           {/* Email */}
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-[#1e293b] rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center flex-shrink-0">
               <svg
-                className="text-white"
+                className="text-background"
                 fill="none"
                 height="20"
                 stroke="currentColor"
@@ -144,18 +144,16 @@ export default function ContactForm() {
               </svg>
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#1e293b]">Email</h3>
-              <p className="text-[#64748b] text-sm">
-                jainikpatel1743@gmail.com
-              </p>
+              <h3 className="text-base font-bold text-foreground">Email</h3>
+              <p className="text-muted text-sm">jainikpatel1743@gmail.com</p>
             </div>
           </div>
 
           {/* WhatsApp */}
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-[#1e293b] rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center flex-shrink-0">
               <svg
-                className="text-white"
+                className="text-background"
                 fill="currentColor"
                 height="20"
                 viewBox="0 0 24 24"
@@ -165,16 +163,16 @@ export default function ContactForm() {
               </svg>
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#1e293b]">Phone</h3>
-              <p className="text-[#64748b] text-sm">+91 9909126589</p>
+              <h3 className="text-base font-bold text-foreground">Phone</h3>
+              <p className="text-muted text-sm">+91 9909126589</p>
             </div>
           </div>
 
           {/* Address */}
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-[#1e293b] rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center flex-shrink-0">
               <svg
-                className="text-white"
+                className="text-background"
                 fill="none"
                 height="20"
                 stroke="currentColor"
@@ -189,8 +187,8 @@ export default function ContactForm() {
               </svg>
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#1e293b]">Address</h3>
-              <p className="text-[#64748b] text-sm">Ahmedabad, India</p>
+              <h3 className="text-base font-bold text-foreground">Address</h3>
+              <p className="text-muted text-sm">Ahmedabad, India</p>
             </div>
           </div>
         </div>

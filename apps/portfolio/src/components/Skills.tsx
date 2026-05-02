@@ -61,7 +61,7 @@ export default function Skills() {
       id="skills"
     >
       {/* Top 3 Columns */}
-      <h2 className="text-3xl font-bold text-[#1e293b] mb-16">
+      <h2 className="text-3xl font-bold text-foreground mb-16">
         <span className="underline decoration-2 underline-offset-4">
           What I bring
         </span>{" "}
@@ -71,16 +71,16 @@ export default function Skills() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-24 cursor-default">
         {services.map((service, index) => (
           <div
-            className={`flex flex-col group ${index !== services.length - 1 ? "md:border-r md:border-[#e2e8f0]/60 md:pr-12" : ""}`}
+            className={`flex flex-col group ${index !== services.length - 1 ? "md:border-r md:border-border/60 md:pr-12" : ""}`}
             key={service.id}
           >
-            <span className="text-5xl font-light text-[#64748b] mb-6 group-hover:text-[#f97316] transition-colors">
+            <span className="text-5xl font-light text-muted mb-6 group-hover:text-accent transition-colors">
               {service.id}
             </span>
-            <h3 className="text-xl font-bold text-[#1e293b] mb-4 leading-snug">
+            <h3 className="text-xl font-bold text-foreground mb-4 leading-snug">
               {service.title}
             </h3>
-            <p className="text-[#1e293b] text-[15px] font-medium leading-relaxed">
+            <p className="text-foreground text-[15px] font-medium leading-relaxed">
               {service.description}
             </p>
           </div>
@@ -88,7 +88,7 @@ export default function Skills() {
       </div>
 
       {/* Skills Grid */}
-      <h2 className="text-3xl font-bold text-[#1e293b] mb-12">
+      <h2 className="text-3xl font-bold text-foreground mb-12">
         <span className="underline decoration-2 underline-offset-4">
           Skills
         </span>{" "}
@@ -101,14 +101,14 @@ export default function Skills() {
             className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12"
             key={category.name}
           >
-            <h3 className="md:w-32 text-xl font-bold text-[#1e293b] pt-1">
+            <h3 className="md:w-32 text-xl font-bold text-foreground pt-1">
               {category.name}
             </h3>
 
-            <div className="flex-1 flex flex-wrap gap-2 md:border-l-2 md:border-[#e2e8f0] md:pl-8">
+            <div className="flex-1 flex flex-wrap gap-2 md:border-l-2 md:border-border md:pl-8">
               {category.skills.map((skill) => (
                 <span
-                  className="px-4 py-1.5 bg-[#1e293b] text-white text-sm font-semibold rounded-sm hover:-translate-y-0.5 hover:shadow-md transition-all cursor-default"
+                  className="px-4 py-1.5 bg-foreground text-white text-sm font-semibold rounded-sm hover:-translate-y-0.5 hover:shadow-md transition-all cursor-default"
                   key={skill}
                 >
                   {skill}

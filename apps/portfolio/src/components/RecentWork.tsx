@@ -27,7 +27,7 @@ export default function RecentWork() {
   return (
     <section className="w-full px-6 lg:px-12 py-16">
       <div className="flex justify-between items-end mb-10">
-        <h2 className="text-2xl font-bold tracking-tight text-[#1e293b]">
+        <h2 className="text-2xl font-bold tracking-tight text-foreground">
           My{" "}
           <span className="underline decoration-[3px] underline-offset-4">
             Recent
@@ -35,7 +35,7 @@ export default function RecentWork() {
           Work
         </h2>
         <Link
-          className="text-sm font-medium text-[#1e293b] hover:text-[#f97316] transition-colors flex items-center gap-1.5"
+          className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1.5"
           href="/projects"
         >
           <svg
@@ -60,39 +60,39 @@ export default function RecentWork() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <div
-            className="flex flex-col bg-white border border-[#e2e8f0] rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            className="flex flex-col bg-background border border-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
             key={project.id}
           >
-            <div className="w-full h-56 bg-[#fbf9f6] relative overflow-hidden flex items-center justify-center border-b border-[#e2e8f0]">
-              <span className="absolute top-4 right-4 px-3 py-1 bg-[#f97316] text-white text-xs font-bold rounded-full shadow-sm z-10">
+            <div className="w-full h-56 bg-background relative overflow-hidden flex items-center justify-center border-b border-border">
+              <span className="absolute top-4 right-4 px-3 py-1 bg-accent text-white text-xs font-bold rounded-full shadow-sm z-10">
                 {project.badge}
               </span>
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmJmOWY2Ij48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjZTJlOGYwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] opacity-60" />
-              <div className="text-[#94a3b8] font-mono text-sm tracking-widest z-10">
+              <div className="text-muted font-mono text-sm tracking-widest z-10">
                 IMAGE_PLACEHOLDER
               </div>
             </div>
             <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-xl font-bold text-[#1e293b] mb-3">
+              <h3 className="text-xl font-bold text-foreground mb-3">
                 {project.name}
               </h3>
-              <p className="text-[#64748b] text-sm leading-relaxed mb-6 flex-grow">
+              <p className="text-muted text-sm leading-relaxed mb-6 flex-grow">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {project.tech.map((tool) => (
                   <span
-                    className="px-3 py-1 text-xs font-medium text-[#1e293b] bg-white rounded-full border border-[#e2e8f0]"
+                    className="px-3 py-1 text-xs font-medium text-foreground bg-background rounded-full border border-border"
                     key={tool}
                   >
                     {tool}
                   </span>
                 ))}
               </div>
-              <div className="flex justify-between items-center mt-auto pt-4 border-t border-[#e2e8f0]/40">
+              <div className="flex justify-between items-center mt-auto pt-4 border-t border-border/40">
                 <div className="flex gap-2">
                   <a
-                    className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0f172a] hover:bg-[#1e293b] px-4 py-2 rounded-lg transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-bold text-background bg-foreground hover:bg-accent hover:text-white px-4 py-2 rounded-lg transition-colors"
                     href={project.link}
                   >
                     <svg
@@ -114,7 +114,7 @@ export default function RecentWork() {
                   </a>
                   {project.repo && (
                     <a
-                      className="flex items-center justify-center w-8 h-8 text-white bg-[#0f172a] hover:bg-[#1e293b] rounded-lg transition-colors"
+                      className="flex items-center justify-center w-8 h-8 text-background bg-foreground hover:bg-accent hover:text-white rounded-lg transition-colors"
                       href={project.repo}
                     >
                       <svg
@@ -130,7 +130,7 @@ export default function RecentWork() {
                   )}
                 </div>
                 <a
-                  className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#f97316] hover:bg-[#ea580c] px-4 py-2 rounded-lg transition-colors"
+                  className="flex items-center gap-1.5 text-xs font-bold text-white bg-accent hover:bg-orange-600 px-4 py-2 rounded-lg transition-colors"
                   href={project.link}
                 >
                   View

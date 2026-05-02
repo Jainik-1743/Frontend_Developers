@@ -33,15 +33,15 @@ export default function Topnav() {
 
   return (
     <>
-      <header className="w-full px-6 lg:pl-0 lg:pr-12 bg-transparent z-50 border-b border-[#e2e8f0]">
+      <header className="w-full px-6 lg:pl-0 lg:pr-12 bg-transparent z-50 border-b border-border">
         <div className="hidden md:flex items-center justify-between py-8">
           <div className="flex flex-col gap-3">
             <TransitionLink
-              className="text-3xl font-medium text-[#1e293b]"
+              className="text-3xl font-medium text-foreground"
               href="/"
             >
               Jainik{" "}
-              <span className="font-light bg-[#ffedd5]/70 px-1 text-[#1e293b]">
+              <span className="font-light bg-accent-light/70 px-1 text-foreground">
                 Patel.
               </span>
             </TransitionLink>
@@ -49,7 +49,7 @@ export default function Topnav() {
 
           <div className="flex items-center gap-4 md:gap-8 min-w-0">
             <Link
-              className="flex items-center gap-1.5 px-3 py-2 text-sm text-[#1e293b] hover:text-[#f97316] transition-colors whitespace-nowrap"
+              className="flex items-center gap-1.5 px-3 py-2 text-sm text-foreground hover:text-accent transition-colors whitespace-nowrap"
               href="http://localhost:3007"
               rel="noopener noreferrer"
               target="_blank"
@@ -71,8 +71,8 @@ export default function Topnav() {
               <span>Blog</span>
             </Link>
 
-            <div className="flex items-center gap-3 text-[#1e293b]">
-              <Link className="hover:text-[#f97316] transition-colors" href="#">
+            <div className="flex items-center gap-3 text-foreground">
+              <Link className="hover:text-accent transition-colors" href="#">
                 <svg
                   fill="none"
                   height="18"
@@ -86,9 +86,9 @@ export default function Topnav() {
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                 </svg>
               </Link>
-              <span className="text-[#94a3b8]">|</span>
+              <span className="text-muted">|</span>
               <Link
-                className="hover:text-[#f97316] transition-colors"
+                className="hover:text-accent transition-colors"
                 href="https://linkedin.com/in/jainik-patel-461666203"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -108,9 +108,9 @@ export default function Topnav() {
                   <circle cx="4" cy="4" r="2" />
                 </svg>
               </Link>
-              <span className="text-[#94a3b8]">|</span>
+              <span className="text-muted">|</span>
               <Link
-                className="hover:text-[#f97316] transition-colors"
+                className="hover:text-accent transition-colors"
                 href="mailto:jainikpatel1743@gmail.com"
               >
                 <svg
@@ -201,11 +201,11 @@ export default function Topnav() {
 
         <div className="flex md:hidden items-center justify-between py-5">
           <TransitionLink
-            className="text-2xl font-semibold tracking-tight text-[#1e293b]"
+            className="text-2xl font-semibold tracking-tight text-foreground"
             href="/"
           >
             Jainik{" "}
-            <span className="font-light bg-[#ffedd5]/70 px-1 ml-0.5 text-[#1e293b]">
+            <span className="font-light bg-accent-light/70 px-1 ml-0.5 text-foreground">
               Patel.
             </span>
           </TransitionLink>
@@ -307,18 +307,18 @@ export default function Topnav() {
       />
 
       <nav
-        className={`fixed top-0 left-0 h-screen w-72 bg-white dark:bg-[#0b1220] z-[95] flex flex-col pt-8 pb-10 px-8 shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed top-0 left-0 h-screen w-72 bg-background z-[95] flex flex-col pt-8 pb-10 px-8 shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between mb-10">
           <TransitionLink
-            className="text-2xl font-semibold tracking-tight text-[#1e293b]"
+            className="text-2xl font-semibold tracking-tight text-foreground"
             href="/"
             onClick={closeMenu}
           >
             Jainik{" "}
-            <span className="font-light bg-[#ffedd5]/70 px-1 ml-0.5 text-[#1e293b]">
+            <span className="font-light bg-accent-light/70 px-1 ml-0.5 text-foreground">
               Patel.
             </span>
           </TransitionLink>
@@ -352,15 +352,15 @@ export default function Topnav() {
               <TransitionLink
                 className={`relative flex items-center justify-between px-4 py-4 text-base font-medium transition-all duration-200 rounded-none ${
                   isActive
-                    ? "text-[#ff5b00] font-semibold bg-[#fff3ee] dark:bg-[#152d56]"
-                    : "text-[#1e293b] hover:text-[#ff5b00] hover:bg-[#f5f7fb] dark:hover:bg-[#102447]"
+                    ? "text-accent font-semibold bg-nav-active dark:bg-nav-active"
+                    : "text-foreground hover:text-accent hover:bg-nav-hover dark:hover:bg-nav-hover"
                 }`}
                 href={item.href}
                 key={item.id}
                 onClick={closeMenu}
               >
                 {isActive && (
-                  <span className="absolute left-0 top-2.5 bottom-2.5 w-[3px] rounded bg-[#ff6b00]" />
+                  <span className="absolute left-0 top-2.5 bottom-2.5 w-[3px] rounded bg-accent" />
                 )}
                 <span>{item.name}</span>
                 {isActive && (

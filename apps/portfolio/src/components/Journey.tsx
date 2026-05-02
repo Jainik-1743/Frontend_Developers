@@ -63,10 +63,10 @@ export default function Journey() {
       id="journey"
     >
       <div className="mb-14">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#1e293b] mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
           Journey in Progress...
         </h2>
-        <p className="text-[#64748b] text-base md:text-lg leading-relaxed max-w-4xl">
+        <p className="text-muted text-base md:text-lg leading-relaxed max-w-4xl">
           My professional journey has been driven by a passion for building
           clean, performant, and user-friendly digital experiences. With over
           3.5 years of expertise in the React ecosystem, I am constantly
@@ -77,53 +77,53 @@ export default function Journey() {
       <div className="grid grid-cols-1 lg:grid-cols-[250px_minmax(0,1fr)] gap-10 lg:gap-16">
         <aside className="hidden lg:flex flex-col">
           <div className="mb-16">
-            <p className="text-[#64748b] text-sm font-medium mb-1">I am here</p>
-            <p className="text-[#1e293b] text-3xl font-bold leading-tight">
+            <p className="text-muted text-sm font-medium mb-1">I am here</p>
+            <p className="text-foreground text-3xl font-bold leading-tight">
               Today
             </p>
           </div>
 
           <div className="mt-auto">
-            <p className="text-[#64748b] text-sm font-medium mb-2">
+            <p className="text-muted text-sm font-medium mb-2">
               Started working at
             </p>
-            <p className="text-[#1e293b] text-xl font-bold leading-tight">
+            <p className="text-foreground text-xl font-bold leading-tight">
               Intellitech Work LLP
             </p>
-            <p className="text-[#1e293b] text-xl font-bold mt-1">2022</p>
+            <p className="text-foreground text-xl font-bold mt-1">2022</p>
           </div>
         </aside>
 
         <div className="relative pl-10 lg:pl-12">
-          <div className="absolute left-0 top-2 bottom-2 w-[2px] bg-[#1e293b]" />
+          <div className="absolute left-0 top-2 bottom-2 w-[2px] bg-foreground" />
           {journey.map((item) => (
             <article className="relative pb-14 last:pb-2 pl-8" key={item.id}>
-              <div className="absolute left-0 top-2 h-5 w-5 -translate-x-[10px] rounded-full border-[3px] border-[#1e293b] bg-white" />
+              <div className="absolute left-0 top-2 h-5 w-5 -translate-x-[10px] rounded-full border-[3px] border-foreground bg-background" />
 
-              <p className="text-[#1e293b] font-extrabold text-2xl mb-3">
+              <p className="text-foreground font-extrabold text-2xl mb-3">
                 {item.year}
               </p>
 
-              <h3 className="text-[#1e293b] font-bold text-2xl leading-tight mb-3">
+              <h3 className="text-foreground font-bold text-2xl leading-tight mb-3">
                 {item.role}
               </h3>
 
-              <p className="text-[#64748b] text-sm font-semibold mb-3">
+              <p className="text-muted text-sm font-semibold mb-3">
                 {item.date}
               </p>
 
-              <span className="inline-flex bg-[#ffedd5] text-[#1e293b] font-bold text-base px-2 py-0.5 mb-5">
+              <span className="inline-flex bg-accent-light text-foreground font-bold text-base px-2 py-0.5 mb-5">
                 {item.orgLabel}
               </span>
 
-              <p className="text-[#1e293b] text-lg leading-relaxed max-w-4xl mb-5">
+              <p className="text-foreground text-lg leading-relaxed max-w-4xl mb-5">
                 {item.description}
               </p>
 
               <div className="space-y-2 max-w-4xl">
                 {item.highlights.map((point) => (
                   <p
-                    className="text-[#64748b] text-base leading-relaxed"
+                    className="text-muted text-base leading-relaxed"
                     key={point}
                   >
                     {point}

@@ -24,14 +24,14 @@ export default function Sidebar() {
             <TransitionLink
               className={`portfolio-sidebar-link relative flex items-center justify-between px-4 py-3.5 w-full transition-all duration-200 rounded-none ${
                 isActive
-                  ? "portfolio-sidebar-link-active text-[#ff5b00] font-semibold bg-[#fff3ee]"
-                  : "text-[#1e293b] hover:text-[#ff5b00] hover:bg-[#f5f7fb]"
+                  ? "portfolio-sidebar-link-active text-accent font-semibold bg-nav-active"
+                  : "text-foreground hover:text-accent hover:bg-nav-hover"
               }`}
               href={item.href}
               key={item.id}
             >
               {isActive && (
-                <span className="absolute left-0 top-2.5 bottom-2.5 w-[3px] rounded bg-[#ff6b00]" />
+                <span className="absolute left-0 top-2.5 bottom-2.5 w-[3px] rounded bg-accent" />
               )}
               <span>{item.name}</span>
               {isActive && (
