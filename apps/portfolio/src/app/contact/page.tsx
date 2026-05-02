@@ -1,5 +1,6 @@
 import ContactFormComponent from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import RecaptchaProvider from "@/components/RecaptchaProvider";
 import Topnav from "@/components/Topnav";
 
 export default function ContactPage() {
@@ -7,7 +8,9 @@ export default function ContactPage() {
     <>
       <Topnav />
       <main className="flex-1 w-full flex flex-col items-center">
-        <ContactFormComponent />
+        <RecaptchaProvider>
+          <ContactFormComponent />
+        </RecaptchaProvider>
       </main>
       <Footer />
     </>

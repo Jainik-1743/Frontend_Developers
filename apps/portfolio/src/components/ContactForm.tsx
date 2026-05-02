@@ -1,23 +1,52 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState, useTransition } from "react";
 
 import { Button } from "@repo/ui/components/ui/button";
 import { Input } from "@repo/ui/components/ui/input";
 import { Textarea } from "@repo/ui/components/ui/textarea";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+
+import { submitContactForm } from "../app/actions/contact";
 
 export default function ContactForm() {
+  const [isPending, startTransition] = useTransition();
   const [formData, setFormData] = useState({
     title: "",
     email: "",
     message: "",
   });
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Database integration later
-    alert("Form submitted! Database integration coming soon.");
-  };
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+
+      if (!formData.title || !formData.email || !formData.message) {
+        alert("All fields are required!");
+        return;
+      }
+
+      if (!executeRecaptcha) {
+        alert("reCAPTCHA not yet available. Please wait a moment.");
+        return;
+      }
+
+      startTransition(async () => {
+        // Execute reCAPTCHA v3 invisibly and get a token
+        const captchaToken = await executeRecaptcha("contact_form");
+
+        const result = await submitContactForm({ ...formData, captchaToken });
+        if (result.success) {
+          setFormData({ title: "", email: "", message: "" });
+          alert("Message sent successfully!");
+        } else {
+          alert(result.error || "Failed to send message. Please try again.");
+        }
+      });
+    },
+    [formData, executeRecaptcha],
+  );
 
   return (
     <section className="w-full px-6 lg:px-12 py-16 max-w-7xl mx-auto">
@@ -98,28 +127,13 @@ export default function ContactForm() {
             />
           </div>
 
-          {/* reCAPTCHA Placeholder */}
-          <div className="flex items-center gap-3 p-4 border border-border rounded-md bg-background w-max">
-            <input
-              className="w-5 h-5 accent-foreground"
-              id="captcha"
-              type="checkbox"
-            />
-            <label className="text-sm text-muted" htmlFor="captcha">
-              I&apos;m not a robot
-            </label>
-            <div className="ml-4 text-[10px] text-muted leading-tight">
-              <div className="font-bold text-muted">reCAPTCHA</div>
-              <div>Privacy - Terms</div>
-            </div>
-          </div>
-
           <Button
             className="w-full bg-foreground hover:bg-accent text-background font-bold py-4 rounded-lg transition-colors mt-2 hover:border-transparent"
+            disabled={isPending}
             type="submit"
             variant="default"
           >
-            Send
+            {isPending ? "Sending..." : "Send"}
           </Button>
         </form>
 
