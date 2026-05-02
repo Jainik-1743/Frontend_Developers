@@ -50,7 +50,7 @@ export default function Topnav() {
           <div className="flex items-center gap-4 md:gap-8 min-w-0">
             <Link
               className="flex items-center gap-1.5 px-3 py-2 text-sm text-foreground hover:text-accent transition-colors whitespace-nowrap"
-              href="http://localhost:3007"
+              href="https://blog-jainikpatel.vercel.app/"
               rel="noopener noreferrer"
               target="_blank"
             >
