@@ -5,6 +5,7 @@ import { useCallback, useState, useTransition } from "react";
 import { Button } from "@repo/ui/components/ui/button";
 import { Input } from "@repo/ui/components/ui/input";
 import { Textarea } from "@repo/ui/components/ui/textarea";
+import * as Sentry from "@sentry/nextjs";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { submitContactForm } from "../app/actions/contact";
@@ -22,26 +23,53 @@ export default function ContactForm() {
     (e: React.FormEvent) => {
       e.preventDefault();
 
+      Sentry.addBreadcrumb({
+        category: "ui.click",
+        message: "Contact form submit button clicked",
+        level: "info",
+      });
+
       if (!formData.title || !formData.email || !formData.message) {
         alert("All fields are required!");
         return;
       }
 
       if (!executeRecaptcha) {
+        Sentry.captureMessage(
+          "reCAPTCHA not available on form submit",
+          "warning",
+        );
         alert("reCAPTCHA not yet available. Please wait a moment.");
         return;
       }
 
       startTransition(async () => {
-        // Execute reCAPTCHA v3 invisibly and get a token
-        const captchaToken = await executeRecaptcha("contact_form");
+        try {
+          // Execute reCAPTCHA v3 invisibly and get a token
+          const captchaToken = await executeRecaptcha("contact_form");
 
-        const result = await submitContactForm({ ...formData, captchaToken });
-        if (result.success) {
-          setFormData({ title: "", email: "", message: "" });
-          alert("Message sent successfully!");
-        } else {
-          alert(result.error || "Failed to send message. Please try again.");
+          const result = await submitContactForm({ ...formData, captchaToken });
+          if (result.success) {
+            Sentry.captureMessage(
+              "Contact form submitted successfully",
+              "info",
+            );
+            setFormData({ title: "", email: "", message: "" });
+            alert("Message sent successfully!");
+          } else {
+            Sentry.captureException(
+              new Error(result.error || "Form submission failed"),
+              {
+                extra: { result, formData },
+              },
+            );
+            alert(result.error || "Failed to send message. Please try again.");
+          }
+        } catch (err) {
+          Sentry.captureException(err, {
+            extra: { formData },
+          });
+          alert("An unexpected error occurred. Please try again.");
         }
       });
     },

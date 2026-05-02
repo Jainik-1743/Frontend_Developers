@@ -28,6 +28,13 @@ export async function submitContactForm(formData: {
   captchaToken: string;
 }) {
   try {
+    Sentry.addBreadcrumb({
+      category: "contact_form",
+      message: "Submitting contact form",
+      level: "info",
+      data: { email: formData.email, title: formData.title },
+    });
+
     // 0. Verify reCAPTCHA v3
     const verifyBody = new URLSearchParams({
       secret: process.env.CAPTCHA_SECRET_KEY || "",
@@ -48,6 +55,8 @@ export async function submitContactForm(formData: {
     // v3 returns a score from 0.0 (bot) to 1.0 (human)
     if (!verifyRes.success) {
       console.error("reCAPTCHA v3 verification failed:", verifyRes);
+      Sentry.setTag("recaptcha_status", "failed");
+      Sentry.setContext("recaptcha_response", verifyRes);
       return {
         success: false,
         error: `reCAPTCHA verification failed: ${verifyRes["error-codes"]?.join(", ") || "unknown error"}`,
@@ -56,8 +65,16 @@ export async function submitContactForm(formData: {
 
     if (verifyRes.score < 0.3) {
       console.warn("reCAPTCHA v3 low score:", verifyRes.score);
+      Sentry.setTag("recaptcha_status", "low_score");
+      Sentry.setContext("recaptcha_response", verifyRes);
       return { success: false, error: "Submission blocked as potential spam." };
     }
+
+    Sentry.setTag("recaptcha_status", "success");
+    Sentry.setContext("form_data", {
+      title: formData.title,
+      email: formData.email,
+    });
 
     // 1. Save to Database
     await prisma.contactMessage.create({
@@ -79,8 +96,10 @@ export async function submitContactForm(formData: {
 
     return { success: true };
   } catch (error) {
-    Sentry.captureException("Error submitting contact form ", {
-      extra: { error },
+    console.error("Error submitting contact form:", error);
+    Sentry.captureException(error, {
+      tags: { action: "submitContactForm" },
+      extra: { formData },
     });
     return { success: false, error: "Failed to submit form" };
   }
