@@ -4,6 +4,14 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "env": [
+        "DATABASE_URL",
+        "EMAIL_USER",
+        "EMAIL_APP_PASSWORD",
+        "CAPTCHA_SECRET_KEY",
+        "NEXT_PUBLIC_CAPTCHA_SITE_KEY",
+        "SENTRY_AUTH_TOKEN"
+      ],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
