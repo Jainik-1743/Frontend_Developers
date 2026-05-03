@@ -72,7 +72,12 @@ export default function Topnav() {
             </Link>
 
             <div className="flex items-center gap-3 text-foreground">
-              <Link className="hover:text-accent transition-colors" href="#">
+              <Link
+                className="hover:text-accent transition-colors"
+                href="https://github.com/Jainik-1743"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <svg
                   fill="none"
                   height="18"
@@ -155,6 +160,7 @@ export default function Topnav() {
 
             <Button
               aria-label="Toggle theme"
+              className="hover:text-accent hover:bg-transparent transition-colors"
               onClick={() => setTheme(isDark ? "light" : "dark")}
               size="icon"
               type="button"
@@ -213,6 +219,7 @@ export default function Topnav() {
           <div className="flex items-center gap-2">
             <Button
               aria-label="Toggle theme"
+              className="hover:text-accent hover:bg-transparent transition-colors"
               onClick={() => setTheme(isDark ? "light" : "dark")}
               size="icon"
               type="button"
