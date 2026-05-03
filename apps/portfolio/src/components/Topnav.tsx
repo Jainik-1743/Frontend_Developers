@@ -389,6 +389,122 @@ export default function Topnav() {
             );
           })}
         </div>
+
+        <div className="mt-auto pt-6 flex flex-col gap-6">
+          <div className="flex items-center justify-center gap-6 text-foreground">
+            <Link
+              aria-label="Blog"
+              className="hover:text-accent transition-colors"
+              href="https://blog-jainikpatel.vercel.app/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                fill="none"
+                height="22"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                width="22"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" x2="21" y1="14" y2="3" />
+              </svg>
+            </Link>
+
+            <Link
+              aria-label="GitHub"
+              className="hover:text-accent transition-colors"
+              href="https://github.com/Jainik-1743"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                fill="none"
+                height="22"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                width="22"
+              >
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg>
+            </Link>
+
+            <Link
+              aria-label="LinkedIn"
+              className="hover:text-accent transition-colors"
+              href="https://linkedin.com/in/jainik-patel-461666203"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                fill="none"
+                height="22"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                width="22"
+              >
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect height="12" width="4" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </Link>
+
+            <Link
+              aria-label="Email"
+              className="hover:text-accent transition-colors"
+              href="mailto:jainikpatel1743@gmail.com"
+            >
+              <svg
+                fill="none"
+                height="22"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                width="22"
+              >
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </Link>
+          </div>
+
+          <Button asChild className="w-full h-11" variant="outline">
+            <Link
+              className="flex items-center justify-center gap-2"
+              href="/Jainik_Patel_React_Developer.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                fill="none"
+                height="16"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                width="16"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" x2="12" y1="15" y2="3" />
+              </svg>
+              Resume
+            </Link>
+          </Button>
+        </div>
       </nav>
     </>
   );

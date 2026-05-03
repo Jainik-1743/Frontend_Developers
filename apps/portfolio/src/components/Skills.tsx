@@ -108,7 +108,7 @@ export default function Skills() {
             <div className="flex-1 flex flex-wrap gap-2 md:border-l-2 md:border-border md:pl-8">
               {category.skills.map((skill) => (
                 <span
-                  className="px-4 py-1.5 bg-foreground text-white text-sm font-semibold rounded-sm hover:-translate-y-0.5 hover:shadow-md transition-all cursor-default"
+                  className="px-4 py-1.5 bg-foreground text-background text-sm font-semibold rounded-sm hover:-translate-y-0.5 hover:shadow-md transition-all cursor-default"
                   key={skill}
                 >
                   {skill}
