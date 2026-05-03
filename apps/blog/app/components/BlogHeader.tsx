@@ -16,7 +16,7 @@ export default function BlogHeader() {
         </Link>
         <Link
           className="hover:text-[#f97316] transition-colors"
-          href="http://localhost:3106"
+          href="https://jainik-patel.vercel.app"
         >
           ← Portfolio
         </Link>
