@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
+import CopyableCode from "../components/CopyableCode";
 
 export interface BlogPost {
   slug: string;
@@ -12,6 +13,290 @@ export interface BlogPost {
 }
 
 export const blogs: BlogPost[] = [
+  {
+    slug: "nextjs-ai-skills",
+    title: "Next.js AI Skills: Adding Topics",
+    description:
+      "Learn how to effectively use Cursor with Next.js skill files to keep your team synced with proper logic and mindsets.",
+    date: "May 8, 2026",
+    readTime: "3 min read",
+    tags: ["Next.js", "AI", "Cursor", "Skills"],
+    content: (
+      <>
+        <h2>How to Use Cursor Effectively: The Right Mindset</h2>
+        <p>
+          To get the most out of Cursor, it is highly recommended to use{" "}
+          <strong>Skill files</strong>. While Cursor can consume more tokens
+          when using them, they ensure all developers in a team stay in sync
+          with the proper logic, mindset, and appropriate skills for specific
+          tasks.
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>1. Next.js Best Practices</h3>
+        <p>
+          You can easily add the Next.js Best Practices skill by running the
+          following command. This will provide your AI assistant with the
+          optimal context for Next.js development.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/vercel-labs/next-skills --skill next-best-practices" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="http://skills.sh/vercel-labs/next-skills/next-best-practices"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            http://skills.sh/vercel-labs/next-skills/next-best-practices
+          </a>
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>2. Next.js Cache Components</h3>
+        <p>
+          You can add the Next.js Cache Components skill by running the
+          following command. This will teach your AI assistant the latest
+          caching patterns and strategies.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/vercel-labs/next-skills --skill next-cache-components" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="https://skills.sh/vercel-labs/next-skills/next-cache-components"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            https://skills.sh/vercel-labs/next-skills/next-cache-components
+          </a>
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>3. UI/UX Pro Max - Design Intelligence</h3>
+        <p>
+          This skill provides comprehensive design intelligence for web and
+          mobile UI/UX across 10 technology stacks. It contains an extensive
+          searchable database of styles, color palettes, font pairings, chart
+          types, and priority-ranked rules for accessibility and responsiveness.
+        </p>
+        <p>
+          <strong>When to apply:</strong> Use this skill when designing new
+          pages (dashboards, SaaS, landing pages), creating UI components,
+          choosing color schemes, or reviewing UI code for visual consistency
+          and user experience.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max
+          </a>
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>4. Vercel React Best Practices</h3>
+        <p>
+          A comprehensive performance optimization guide for React and Next.js
+          applications, maintained by Vercel. It contains prioritized rules
+          across 8 categories, including async patterns, bundle size
+          optimization, and server-side caching.
+        </p>
+        <p>
+          <strong>When to apply:</strong> Reference these guidelines when
+          writing new React components or Next.js pages, implementing data
+          fetching, or performing code reviews and performance audits.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-practices" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices
+          </a>
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>5. Find Skills (Ecosystem Discovery)</h3>
+        <p>
+          This is one of the most popular skills available. It allows your AI
+          assistant to discover, verify, and install specialized agent skills
+          from the open ecosystem whenever you need extended capabilities.
+        </p>
+        <p>
+          <strong>When to apply:</strong> Use this whenever you find yourself
+          asking "how do I do X" or "is there a skill for X". It automatically
+          integrates with the Skills CLI to search and recommend packages based
+          on install counts and GitHub stars.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/vercel-labs/skills --skill find-skills" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="https://skills.sh/vercel-labs/skills/find-skills"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            https://skills.sh/vercel-labs/skills/find-skills
+          </a>
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>6. shadcn/ui Component Management</h3>
+        <div className="border-l-4 border-orange-500 pl-4 py-2 my-6 bg-orange-500/10 rounded-r-sm">
+          <p className="m-0 text-sm font-medium text-orange-700 dark:text-orange-300">
+            ⚠️ <strong>Important:</strong> Only add this skill if you are using
+            shadcn/ui inside your Next.js project.
+          </p>
+        </div>
+        <p>
+          This skill manages the full component lifecycle for shadcn/ui,
+          including searching registries, adding components, viewing docs, and
+          intelligently merging updates. It enforces critical rules across
+          forms, composition, semantic styling, and icons.
+        </p>
+        <p>
+          <strong>Principles enforced:</strong> Use existing components before
+          writing custom UI, compose layouts rather than reinventing them, and
+          always utilize built-in variants and semantic colors.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/shadcn/ui --skill shadcn" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="https://skills.sh/shadcn/ui/shadcn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            https://skills.sh/shadcn/ui/shadcn
+          </a>
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>7. Vercel Composition Patterns</h3>
+        <p>
+          A guide focused on React composition patterns designed to help you
+          scale components flexibly while avoiding the dreaded "boolean prop
+          proliferation." It covers component architecture, state management,
+          and modern React 19 APIs.
+        </p>
+        <p>
+          <strong>When to apply:</strong> Use these guidelines when refactoring
+          bloated components with too many boolean props, designing reusable
+          component libraries, or reviewing overall component architecture.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-composition-patterns" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns
+          </a>
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>8. Better Auth Best Practices</h3>
+        <div className="border-l-4 border-orange-500 pl-4 py-2 my-6 bg-orange-500/10 rounded-r-sm">
+          <p className="m-0 text-sm font-medium text-orange-700 dark:text-orange-300">
+            ⚠️ <strong>Important:</strong> Only add this skill if you are using
+            Better Auth inside your Next.js project.
+          </p>
+        </div>
+        <p>
+          A comprehensive guide for complete Better Auth server and client
+          setup. It covers everything from installation, database migrations
+          (Prisma, Drizzle, MongoDB), and session management, to security
+          configurations and plugins like 2FA and SSO.
+        </p>
+        <p>
+          <strong>When to apply:</strong> Use this when implementing
+          authentication, setting up environment variables (
+          <code>BETTER_AUTH_SECRET</code>), or configuring type-safe client
+          methods and database adapters.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/better-auth/skills --skill better-auth-best-practices" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="https://skills.sh/better-auth/skills/better-auth-best-practices"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            https://skills.sh/better-auth/skills/better-auth-best-practices
+          </a>
+        </p>
+
+        <hr className="my-8 border-[#e2e8f0]" />
+
+        <h3>9. Tailwind CSS Patterns</h3>
+        <p>
+          An expert guide for building modern, responsive user interfaces with
+          Tailwind CSS v4.1+. It covers utility composition, mobile-first
+          design, dark mode, component patterns (cards, navigation, forms), and
+          performance optimization.
+        </p>
+        <p>
+          <strong>When to apply:</strong> Use this skill when styling
+          React/Vue/Svelte components, building responsive grid layouts,
+          implementing design systems, or optimizing your CSS workflow.
+        </p>
+
+        <CopyableCode code="npx skills add https://github.com/giuseppe-trisciuoglio/developer-kit --skill tailwind-css-patterns" />
+
+        <p className="mt-6">
+          <strong>Link:</strong>{" "}
+          <a
+            href="https://skills.sh/giuseppe-trisciuoglio/developer-kit/tailwind-css-patterns"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f97316] hover:underline"
+          >
+            https://skills.sh/giuseppe-trisciuoglio/developer-kit/tailwind-css-patterns
+          </a>
+        </p>
+      </>
+    ),
+  },
   {
     slug: "react-performance",
     title: "Advanced React Performance Optimization",
